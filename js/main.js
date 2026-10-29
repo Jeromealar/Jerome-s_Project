@@ -12,9 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initActiveNav();
   initModals();
-  initLanguageSwitcher();
+  initBriefingFlow();
   initInsightsLibrary();
   initForms();
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
 });
 
 /* --------------------------------------------------------------------------
@@ -183,15 +186,98 @@ function initModals() {
 }
 
 /* --------------------------------------------------------------------------
-   Language Switcher
+   Guided briefing request
    -------------------------------------------------------------------------- */
-function initLanguageSwitcher() {
-  const frBtn = document.getElementById('lang-switch-fr');
-  if (frBtn) {
-    frBtn.addEventListener('click', () => {
-      showToast('Édition française en cours de déploiement — Version complète prévue pour le T4 2026.');
+function initBriefingFlow() {
+  const form = document.getElementById('briefing-request-form');
+  if (!form) return;
+
+  const panels = [...form.querySelectorAll('[data-briefing-panel]')];
+  const steps = [...document.querySelectorAll('[data-briefing-step]')];
+  const backButton = document.getElementById('briefing-back-button');
+  const nextButton = document.getElementById('briefing-next-button');
+  const submitButton = document.getElementById('briefing-submit-button');
+  const progress = document.getElementById('briefing-progress');
+  const stepNames = ['Your institution', 'Briefing focus', 'Review & send'];
+  let activeStep = 0;
+
+  function updateReview() {
+    const values = {
+      organisation: form.elements.organisation.value.trim(),
+      full_name: form.elements.full_name.value.trim(),
+      interest_area: form.elements.interest_area.selectedOptions[0]?.textContent,
+      email: form.elements.email.value.trim()
+    };
+    Object.entries(values).forEach(([key, value]) => {
+      const target = document.querySelector(`[data-briefing-review="${key}"]`);
+      if (target) {
+        target.textContent = value || 'Not provided yet';
+      }
     });
   }
+
+  function showStep(index) {
+    activeStep = index;
+    panels.forEach((panel, panelIndex) => {
+      panel.hidden = panelIndex !== index;
+      panel.classList.toggle('is-active', panelIndex === index);
+    });
+    steps.forEach((step, stepIndex) => {
+      step.classList.toggle('is-active', stepIndex === index);
+      step.classList.toggle('is-complete', stepIndex < index);
+      if (stepIndex === index) {
+        step.setAttribute('aria-current', 'step');
+      } else {
+        step.removeAttribute('aria-current');
+      }
+    });
+    backButton.hidden = index === 0;
+    nextButton.hidden = index === panels.length - 1;
+    submitButton.hidden = index !== panels.length - 1;
+    progress.textContent = `Step ${index + 1} of ${panels.length} · ${stepNames[index]}`;
+    if (index === panels.length - 1) {
+      updateReview();
+    }
+  }
+
+  function validateStep(index) {
+    const invalidControl = panels[index].querySelector(':invalid');
+    if (invalidControl) {
+      invalidControl.reportValidity();
+      invalidControl.focus();
+      return false;
+    }
+    return true;
+  }
+
+  function goToStep(index) {
+    const target = Math.max(0, Math.min(index, panels.length - 1));
+    if (target > activeStep) {
+      for (let stepIndex = activeStep; stepIndex < target; stepIndex += 1) {
+        if (!validateStep(stepIndex)) {
+          return;
+        }
+      }
+    }
+    showStep(target);
+    panels[target].querySelector('input, select, textarea')?.focus({ preventScroll: true });
+  }
+
+  backButton.addEventListener('click', () => goToStep(activeStep - 1));
+  nextButton.addEventListener('click', () => goToStep(activeStep + 1));
+  steps.forEach((step, index) => {
+    step.addEventListener('click', () => goToStep(index));
+  });
+  form.addEventListener('input', updateReview);
+  form.addEventListener('change', updateReview);
+  form.addEventListener('submit', event => {
+    if (activeStep !== panels.length - 1) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      goToStep(activeStep + 1);
+    }
+  }, true);
+  showStep(0);
 }
 
 /* --------------------------------------------------------------------------
@@ -388,11 +474,23 @@ function initInsightsLibrary() {
   let currentPillar = 'all';
   let currentType = 'all';
   let searchQuery = '';
+  let uploadedPublications = [];
+
+  function escapeHtml(value) {
+    return String(value).replace(/[&<>"']/g, character => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    })[character]);
+  }
 
   function renderPublications() {
     const query = searchQuery.trim().toLowerCase();
+    const publications = [...PUBLICATIONS, ...uploadedPublications];
 
-    const filtered = PUBLICATIONS.filter(pub => {
+    const filtered = publications.filter(pub => {
       // Pillar filter
       if (currentPillar !== 'all' && pub.pillar !== currentPillar) {
         return false;
@@ -418,7 +516,7 @@ function initInsightsLibrary() {
     });
 
     // Update count display
-    countDisplay.textContent = `Displaying ${filtered.length} of ${PUBLICATIONS.length} sovereign intelligence publications`;
+    countDisplay.textContent = `Displaying ${filtered.length} of ${publications.length} sovereign intelligence publications`;
 
     // Render cards
     if (filtered.length === 0) {
@@ -448,26 +546,26 @@ function initInsightsLibrary() {
     }
 
     grid.innerHTML = filtered.map(pub => `
-      <article class="insight-card" data-pub-id="${pub.id}">
+      <article class="insight-card" data-pub-id="${escapeHtml(pub.id)}">
         <div class="insight-meta">
-          <span class="pillar-pill">${pub.pillar}</span>
-          <span class="type-pill">${pub.type}</span>
-          <span style="margin-left: auto;">${pub.readTime}</span>
+          <span class="pillar-pill">${escapeHtml(pub.pillar)}</span>
+          <span class="type-pill">${escapeHtml(pub.type)}</span>
+          <span style="margin-left: auto;">${escapeHtml(pub.readTime)}</span>
         </div>
         <h3>
-          <a href="#" class="open-reader-btn" data-pub-id="${pub.id}">${pub.title}</a>
+          ${pub.uploaded
+            ? `<a href="${escapeHtml(pub.fileUrl)}" target="_blank" rel="noopener">${escapeHtml(pub.title)}</a>`
+            : `<a href="#" class="open-reader-btn" data-pub-id="${escapeHtml(pub.id)}">${escapeHtml(pub.title)}</a>`}
         </h3>
-        <p class="insight-abstract">${pub.abstract}</p>
+        <p class="insight-abstract">${escapeHtml(pub.abstract)}</p>
         <div class="insight-author-bar">
-          <span>By ${pub.author}</span> • <span>${pub.date}</span> • <code>${pub.id}</code>
+          <span>By ${escapeHtml(pub.author)}</span> • <span>${escapeHtml(pub.date)}</span> • <code>${escapeHtml(pub.id)}</code>
         </div>
         <div class="insight-actions">
-          <button type="button" class="btn btn--primary btn--sm open-reader-btn" data-pub-id="${pub.id}">
-            <span class="material-symbols-outlined icon-xs" aria-hidden="true">article</span> Read HTML Brief
-          </button>
-          <button type="button" class="btn btn--outline btn--sm download-pdf-btn" data-pub-id="${pub.id}" title="PDF/UA accessible document format">
-            <span class="material-symbols-outlined icon-xs" aria-hidden="true">download</span> PDF/UA Specs
-          </button>
+          ${pub.uploaded
+            ? `<a class="btn btn--primary btn--sm" href="${escapeHtml(pub.fileUrl)}" target="_blank" rel="noopener"><span class="material-symbols-outlined icon-xs" aria-hidden="true">picture_as_pdf</span> Read publication PDF</a>`
+            : `<button type="button" class="btn btn--primary btn--sm open-reader-btn" data-pub-id="${escapeHtml(pub.id)}"><span class="material-symbols-outlined icon-xs" aria-hidden="true">article</span> Read HTML Brief</button>
+              <button type="button" class="btn btn--outline btn--sm download-pdf-btn" data-pub-id="${escapeHtml(pub.id)}" title="PDF/UA accessible document format"><span class="material-symbols-outlined icon-xs" aria-hidden="true">download</span> PDF/UA Specs</button>`}
         </div>
       </article>
     `).join('');
@@ -489,6 +587,42 @@ function initInsightsLibrary() {
         openPublicationReader(id);
       });
     });
+  }
+
+  async function loadUploadedPublications() {
+    if (!window.RafaDemo) {
+      return;
+    }
+    try {
+      const savedPublications = await window.RafaDemo.listPublications();
+      const loaded = await Promise.all(savedPublications.map(async publication => {
+        try {
+          const file = await window.RafaDemo.getPublicationFile(publication.id);
+          const fileUrl = URL.createObjectURL(file);
+          const publicationDate = new Date(`${publication.date}T00:00:00Z`);
+          return {
+            ...publication,
+            uploaded: true,
+            fileUrl,
+            readTime: 'PDF publication',
+            date: Number.isNaN(publicationDate.getTime())
+              ? publication.date
+              : new Intl.DateTimeFormat('en', { month: 'long', year: 'numeric', timeZone: 'UTC' }).format(publicationDate)
+          };
+        } catch (error) {
+          console.error(`Unable to load uploaded publication ${publication.id}.`, error);
+          return null;
+        }
+      }));
+      uploadedPublications = loaded.filter(Boolean);
+      if (uploadedPublications.length !== savedPublications.length) {
+        showToast('One or more uploaded article files could not be opened from this browser.');
+      }
+      renderPublications();
+    } catch (error) {
+      console.error('Unable to load the local Insights Library uploads.', error);
+      countDisplay.textContent = 'Local article uploads could not be loaded in this browser.';
+    }
   }
 
   function openPublicationReader(pubId) {
@@ -544,6 +678,7 @@ function initInsightsLibrary() {
 
   // Initial render
   renderPublications();
+  loadUploadedPublications();
 }
 
 /* --------------------------------------------------------------------------
@@ -562,63 +697,33 @@ function initForms() {
       const country = briefingForm.querySelector('[name="country"]')?.value;
       const email = briefingForm.querySelector('[name="email"]')?.value.trim();
       const message = briefingForm.querySelector('[name="message"]')?.value.trim();
+      const topic = briefingForm.querySelector('[name="interest_area"]')?.value;
       const consent = briefingForm.querySelector('[name="consent"]')?.checked;
 
-      if (!fullName || !org || !role || !country || !email || !message || !consent) {
+      if (!briefingForm.reportValidity() || !fullName || !org || !role || !country || !email || !message || !topic || !consent) {
         showToast('Please complete all required fields and confirm the institutional protocol agreement.');
         return;
       }
 
-      // Generate institutional intake record
-      const intakeId = `RAFA-INTAKE-2026-${Math.floor(1000 + Math.random() * 9000)}`;
-      const timestamp = new Date().toISOString().replace('T', ' ').substring(0, 19) + ' UTC';
+      if (!saveWebsiteInquiry({
+        type: 'briefing',
+        name: fullName,
+        email,
+        organisation: org,
+        role,
+        country,
+        topic,
+        subject: `Briefing request: ${topic}`,
+        message
+      })) {
+        return;
+      }
 
       const summaryContainer = document.getElementById('briefing-confirmation-summary');
       if (summaryContainer) {
-        summaryContainer.innerHTML = `
-          <div style="background: var(--color-sand-50); border: 1px solid var(--color-sand-200); border-radius: var(--border-radius-sm); padding: var(--space-md); margin-bottom: var(--space-md);">
-            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem;">
-              <span style="font-family: var(--font-mono); font-size: 0.8125rem; font-weight: 700; color: var(--color-ochre-700);">RECORD IDENTIFIER:</span>
-              <code style="font-family: var(--font-mono); font-weight: 700; color: var(--color-slate-900);">${intakeId}</code>
-            </div>
-            <div style="font-size: 0.8125rem; color: var(--color-slate-600); font-family: var(--font-mono);">
-              Intake Timestamp: ${timestamp}
-            </div>
-          </div>
-
-          <p style="font-size: 0.95rem; color: var(--color-slate-800); line-height: 1.6;">
-            Your institutional request for sovereign strategic advisory has been logged securely in the RAFA Secretariat Intake Register.
-          </p>
-
-          <table class="institutional-table" style="margin-top: var(--space-md);">
-            <tbody>
-              <tr>
-                <th style="width: 35%;">Representative</th>
-                <td>${escapeHtml(fullName)} (${escapeHtml(role)})</td>
-              </tr>
-              <tr>
-                <th>Organisation</th>
-                <td>${escapeHtml(org)}</td>
-              </tr>
-              <tr>
-                <th>Jurisdiction</th>
-                <td>${escapeHtml(country)}</td>
-              </tr>
-              <tr>
-                <th>Institutional Email</th>
-                <td>${escapeHtml(email)}</td>
-              </tr>
-              <tr>
-                <th>Confidentiality Protocol</th>
-                <td><span style="color: var(--color-success-text); font-weight: 600;">Tier 1 Sovereign Confidentiality — Direct Secretariat Routing</span></td>
-              </tr>
-            </tbody>
-          </table>
-
-          <div style="margin-top: var(--space-md); padding: var(--space-md); background: #ffffff; border: 1px solid var(--color-slate-200); border-radius: var(--border-radius-sm); font-size: 0.875rem; color: var(--color-slate-700);">
-            <strong>Next Steps:</strong> The RAFA Senior Liaison Secretariat conducts confidential preliminary verification within 48 business hours. An encrypted channel (PGP / sovereign direct communicator) will be provisioned directly to your institutional domain.
-          </div>
-        `;
+        const confirmation = document.createElement('p');
+        confirmation.textContent = 'Thank you. Your briefing request has been received.';
+        summaryContainer.replaceChildren(confirmation);
       }
 
       // Open confirmation modal
@@ -631,6 +736,31 @@ function initForms() {
     });
   }
 
+  const generalInquiryForm = document.getElementById('general-inquiry-form');
+  if (generalInquiryForm) {
+    generalInquiryForm.addEventListener('submit', event => {
+      event.preventDefault();
+      if (!generalInquiryForm.reportValidity()) {
+        return;
+      }
+
+      const formData = new FormData(generalInquiryForm);
+      const inquiry = Object.fromEntries(formData.entries());
+      if (!saveWebsiteInquiry({
+        type: 'general',
+        name: String(inquiry.name || '').trim(),
+        email: String(inquiry.email || '').trim(),
+        subject: String(inquiry.subject || '').trim(),
+        message: String(inquiry.message || '').trim()
+      })) {
+        return;
+      }
+
+      generalInquiryForm.reset();
+      showToast('Thank you. Your message has been received.');
+    });
+  }
+
   // Digest signup forms (both on engage.html and insights.html)
   document.querySelectorAll('#digest-signup-form').forEach(form => {
     form.addEventListener('submit', (e) => {
@@ -638,15 +768,42 @@ function initForms() {
       const emailInput = form.querySelector('[name="digest_email"]');
       const email = emailInput?.value.trim();
 
-      if (!email) {
+      if (!form.reportValidity() || !email) {
         showToast('Please provide an official institutional email.');
         return;
       }
 
-      showToast(`Subscription confirmed. Your address (${email}) will receive the monthly RAFA Strategic Intelligence Digest on the first Tuesday of each month.`);
+      if (!saveWebsiteInquiry({
+        type: 'general',
+        name: '',
+        email,
+        subject: 'RAFA Digest subscription request',
+        message: 'A visitor requested to receive the monthly RAFA Strategic Intelligence Digest.'
+      })) {
+        return;
+      }
+
+      showToast('Thank you. Your digest request has been received.');
       form.reset();
     });
   });
+}
+
+function saveWebsiteInquiry(inquiry) {
+  if (!window.RafaDemo) {
+    console.error('The inquiry could not be saved because the site inbox is unavailable.');
+    showToast('Your inquiry could not be submitted. Please try again later.');
+    return false;
+  }
+
+  try {
+    window.RafaDemo.addInquiry(inquiry);
+    return true;
+  } catch (error) {
+    console.error('Unable to save website inquiry.', error);
+    showToast('Your inquiry could not be submitted. Please try again later.');
+    return false;
+  }
 }
 
 function escapeHtml(str) {

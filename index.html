@@ -1,551 +1,403 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Resource Analytics for Future Africa (RAFA) provides Africa-centred strategic intelligence for governments and institutions to anticipate change, prepare responses, and retain more value from sovereign resources.">
-  <title>RAFA — Resource Analytics for Future Africa | Strategic Intelligence Institution</title>
-  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="RAFA connects Africa-centred strategic intelligence to the resource, industrial and transition decisions that shape shared prosperity.">
+  <meta name="theme-color" content="#123f35">
+  <title>RAFA — From price takers to shapers of Africa's transition</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="icon" type="image/png" href="assets/images/rafa-icon.png">
+  <link rel="apple-touch-icon" href="assets/images/rafa-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" type="image/png" href="assets/rafa-icon.png">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/gtranslate.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <!-- Accessible Skip Link -->
-  <a href="#main-content" class="skip-link">Skip to main institutional content</a>
-
-  <!-- Universal Header -->
-  <header class="site-header" role="banner">
-    <div class="header-topbar">
+  <header class="site-header sticky-top">
+    <nav class="navbar navbar-expand-lg" aria-label="Main navigation">
       <div class="container">
-        <div class="topbar-institution">
-          <span>Pan-African Strategic Intelligence Institution</span>
-          <span aria-hidden="true">•</span>
-          <span>Sovereign Resource &amp; Transition Decisions</span>
-        </div>
-        <div class="topbar-tools">
-          <div class="lang-switcher" aria-label="Language selector">
-            <span class="active" title="English selected">EN</span>
-            <span aria-hidden="true">|</span>
-            <button type="button" id="lang-switch-fr" title="Passer au français (version en déploiement)">FR</button>
-          </div>
-          <span class="last-reviewed-tag"><span class="material-symbols-outlined icon-xs" style="vertical-align: -2px; margin-right: 2px;" aria-hidden="true">verified</span> Review: October 2026</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="header-main">
-      <div class="container">
-        <a href="index.html" class="site-logo" aria-label="RAFA Home">
-          <img src="assets/rafa-logo.png" alt="RAFA — Resource Analytics for Future Africa" class="site-logo-img" />
+        <a class="navbar-brand brand" href="index.html" aria-label="RAFA home">
+          <img src="assets/images/rafa-logo.png" alt="Resource Analytics for Future Africa" width="190" height="58">
         </a>
-
-        <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-navigation" aria-controls="site-navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <i data-lucide="menu" class="nav-menu-icon" aria-hidden="true"></i>
         </button>
-
-        <nav class="main-nav" id="primary-nav" aria-label="Main navigation">
-          <ul class="nav-list">
-            <li><a href="index.html" class="nav-link active" aria-current="page">Home</a></li>
-            <li><a href="about.html" class="nav-link">About</a></li>
-            <li><a href="what-we-do.html" class="nav-link">What we do</a></li>
-            <li><a href="c-mink.html" class="nav-link">C MINK &amp; programmes</a></li>
-            <li><a href="insights.html" class="nav-link">Insights</a></li>
-            <li><a href="people.html" class="nav-link">People &amp; transparency</a></li>
-            <li><a href="engage.html" class="nav-link">Engage</a></li>
-            <li class="nav-cta">
-              <a href="engage.html#briefing-section" class="btn btn--accent btn--sm"><span class="material-symbols-outlined icon-xs" aria-hidden="true">arrow_forward</span> Request a briefing</a>
+        <div class="collapse navbar-collapse" id="site-navigation">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="#about">About RAFA</a></li>
+            <li class="nav-item"><a class="nav-link" href="#approach">Our approach</a></li>
+            <li class="nav-item"><a class="nav-link" href="#work">What we do</a></li>
+            <li class="nav-item"><a class="nav-link" href="#partners">Who we work with</a></li>
+            <li class="nav-item"><a class="nav-link" href="pages/insights.html">Insights</a></li>
+            <li class="nav-item"><a class="nav-link" href="pages/c-mink.html">C MINK</a></li>
+            <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+              <a class="btn btn-rafa btn-rafa--small" href="pages/engage.html#briefing-section">Start a conversation</a>
             </li>
           </ul>
-        </nav>
+        </div>
       </div>
-    </div>
+    </nav>
   </header>
 
-  <!-- Main Content -->
   <main id="main-content">
-    
-    <!-- Hero Section -->
-    <section class="hero hero--institutional" aria-labelledby="hero-title">
-      <div class="container">
-        
-        <!-- Core Positioning Statement (Verbatim Requirement) -->
-        <div class="positioning-statement-card">
-          <blockquote class="statement-text">
-            "Resource Analytics for Future Africa provides Africa-centred strategic intelligence so governments and institutions can anticipate change, prepare for its implications and position themselves to retain more value from Africa's resources and capabilities."
-          </blockquote>
-          <div class="statement-attribution">Official Sovereign Positioning Statement — RAFA Secretariat</div>
-        </div>
-
-        <div class="hero-grid">
-          <div>
-            <h1 id="hero-title">Independent strategic intelligence for sovereign resource decisions.</h1>
-            <p class="lead">
-              RAFA is an Africa-centred strategic-intelligence institution. We equip African governments, regional economic communities, and multilateral bodies to navigate high-stakes mineral and energy transitions with rigorous, uncompromised evidence.
-            </p>
-            <p>
-              In an era of accelerating global commodity competition, decisions taken without deep analytical foresight risk locking African states into raw resource export dependencies for another generation. RAFA works to close this gap.
-            </p>
-
-            <div class="hero-actions">
-              <a href="engage.html#briefing-section" class="btn btn--primary btn--lg"><span class="material-symbols-outlined icon-sm" aria-hidden="true">mail</span> Request a briefing</a>
-              <a href="#app-framework-section" class="btn btn--outline btn--lg"><span class="material-symbols-outlined icon-sm" aria-hidden="true">hub</span> Explore the APP framework</a>
+    <section class="hero-section">
+      <div class="hero-orb hero-orb--one" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb--two" aria-hidden="true"></div>
+      <div class="container position-relative">
+        <div class="row align-items-center g-4 g-lg-5">
+          <div class="col-lg-7">
+            <p class="eyebrow"><span class="eyebrow__line" aria-hidden="true"></span> Independent · Pan-African · Public purpose</p>
+            <h1>From price takers to <span>shapers of Africa’s transition.</span></h1>
+            <p class="hero-copy">RAFA connects the insight Africa needs to anticipate change, prepare for it and shape what comes next — turning existing knowledge into timely, Africa-centred strategic intelligence.</p>
+            <div class="d-flex flex-wrap gap-3 hero-actions">
+              <a class="btn btn-rafa" href="pages/engage.html#briefing-section">Bring us a strategic question</a>
+              <a class="btn btn-outline-rafa" href="#approach">Discover how we work</a>
+            </div>
+            <div class="hero-note">
+              <i data-lucide="sparkles" aria-hidden="true"></i>
+              <span>Intelligence for consequential resource, industrial and transition decisions.</span>
             </div>
           </div>
 
-          <!-- Conceptual Visual: Strategic Value Retention Vector -->
-          <div class="schematic-card" aria-label="Conceptual diagram showing shift from fragmented extraction to coordinated sovereign value capture">
-            <svg class="schematic-svg" viewBox="0 0 460 380" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="460" height="380" rx="6" fill="#F8FAFC"/>
-              <rect x="20" y="20" width="420" height="340" rx="4" stroke="#DCE3EB" stroke-width="1"/>
-              
-              <!-- Title -->
-              <text x="40" y="55" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#475569" letter-spacing="1">SOVEREIGN VALUE CAPTURE ARCHITECTURE</text>
-              <line x1="40" y1="68" x2="420" y2="68" stroke="#E2E8F0" stroke-width="1"/>
-
-              <!-- Baseline: Asymmetric extraction -->
-              <rect x="40" y="95" width="380" height="90" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
-              <text x="56" y="122" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#784C00">HISTORIC TRAJECTORY: ASYMMETRIC EXTRACTION</text>
-              <text x="56" y="142" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="500" fill="#334155">Raw export dependency • Fragmented data • Reactive concession-signing</text>
-              <rect x="56" y="155" width="145" height="18" rx="2" fill="#F1F5F9"/>
-              <text x="64" y="168" font-family="'JetBrains Mono', 'SF Mono', monospace" font-size="10" fill="#64748B">Value retained: &lt;15%</text>
-
-              <!-- Transformation Axis -->
-              <path d="M230 190 L230 220" stroke="#C86D3B" stroke-width="2" stroke-dasharray="3 3"/>
-              <polygon points="230,226 226,218 234,218" fill="#C86D3B"/>
-
-              <!-- Target: RAFA APP Model -->
-              <rect x="40" y="232" width="380" height="105" rx="4" fill="#0E1726" stroke="#1D2C42" stroke-width="1"/>
-              <text x="56" y="260" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#D68353">RAFA POSITION: ANTICIPATE • PREPARE • POSITION</text>
-              <text x="56" y="282" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="500" fill="#FFFFFF">Coordinated intelligence • Regional refining parity • Sovereign bargaining power</text>
-              <rect x="56" y="297" width="175" height="22" rx="2" fill="#1D2C42"/>
-              <text x="64" y="312" font-family="'SF Mono', monospace" font-size="10" font-weight="600" fill="#E8A983">Target value capture: 40–60%+</text>
-            </svg>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- The Problem RAFA Solves -->
-    <section class="section section--sand section--bordered" aria-labelledby="problem-title">
-      <div class="container">
-        <div style="max-width: 780px;">
-          <span class="eyebrow">The Institutional Challenge</span>
-          <h2 id="problem-title">Why conventional advisory models fail sovereign Africa.</h2>
-        </div>
-
-        <div class="app-grid" style="margin-top: var(--space-xl);">
-          <div class="app-card">
-            <span class="card-icon" aria-hidden="true"><span class="material-symbols-outlined icon-md">database</span></span>
-            <span class="app-stage-number">Structural Gap 01</span>
-            <h3>Fragmented Evidence</h3>
-            <p>
-              Critical geological, fiscal, and market intelligence is scattered across international commercial databases, opaque trading houses, and siloed domestic ministries. Sovereign leaders are forced to negotiate with partial information.
-            </p>
-            <div class="app-metric"><span class="material-symbols-outlined icon-xs" style="vertical-align: -2px; color: var(--color-ochre-600); margin-right: 4px;" aria-hidden="true">check_circle</span> RAFA Response: Unified pan-African analytical repositories</div>
-          </div>
-
-          <div class="app-card">
-            <span class="card-icon" aria-hidden="true"><span class="material-symbols-outlined icon-md">travel_explore</span></span>
-            <span class="app-stage-number">Structural Gap 02</span>
-            <h3>Weak Anticipation</h3>
-            <p>
-              External policy shifts—such as unilateral carbon border adjustments, critical raw materials mandates, and synthetic substitutions—are frequently analyzed only after they enter legal force, closing strategic windows.
-            </p>
-            <div class="app-metric"><span class="material-symbols-outlined icon-xs" style="vertical-align: -2px; color: var(--color-ochre-600); margin-right: 4px;" aria-hidden="true">check_circle</span> RAFA Response: Horizon scanning &amp; early signal modeling</div>
-          </div>
-
-          <div class="app-card">
-            <span class="card-icon" aria-hidden="true"><span class="material-symbols-outlined icon-md">account_tree</span></span>
-            <span class="app-stage-number">Structural Gap 03</span>
-            <h3>Readiness-Execution Gaps</h3>
-            <p>
-              Ambitious national value-addition strategies fail at the threshold of institutional readiness: statutory incoherence, grid deficits, and inter-agency delays prevent the conversion of policy intent into durable domestic industries.
-            </p>
-            <div class="app-metric"><span class="material-symbols-outlined icon-xs" style="vertical-align: -2px; color: var(--color-ochre-600); margin-right: 4px;" aria-hidden="true">check_circle</span> RAFA Response: Stress-tested readiness diagnostics</div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- The APP Framework (Anticipate, Prepare, Position) -->
-    <section class="section" id="app-framework-section" aria-labelledby="app-title">
-      <div class="container">
-        <div style="max-width: 820px;">
-          <span class="eyebrow">Strategic Architecture</span>
-          <h2 id="app-title">The APP Framework: How RAFA builds sovereign capability.</h2>
-        </div>
-
-        <div class="app-grid">
-          <!-- Block 1: Anticipate -->
-          <article class="app-card">
-            <div class="card-icon" aria-hidden="true"><span class="material-symbols-outlined icon-md">visibility</span></div>
-            <div class="app-stage-number">Stage 01</div>
-            <h3>Anticipate</h3>
-            <p>
-              Identify structural shifts, geopolitical alignments, supply chain disruptions, and technology substitutions before they foreclose sovereign choices—evaluating how external regulatory mandates affect African export viability and fiscal stability.
-            </p>
-            <div class="app-metric"><span class="material-symbols-outlined icon-xs" style="vertical-align: -2px; color: var(--color-ochre-600); margin-right: 4px;" aria-hidden="true">article</span> Output: Strategic Signals &amp; Scenario Briefs</div>
-          </article>
-
-          <!-- Block 2: Prepare -->
-          <article class="app-card">
-            <div class="card-icon" aria-hidden="true"><span class="material-symbols-outlined icon-md">fact_check</span></div>
-            <div class="app-stage-number">Stage 02</div>
-            <h3>Prepare</h3>
-            <p>
-              Stress-test policy architectures, administrative capacities, infrastructure requirements, and regulatory frameworks against realistic market demands—conducting readiness audits that pinpoint execution bottlenecks in state agencies.
-            </p>
-            <div class="app-metric"><span class="material-symbols-outlined icon-xs" style="vertical-align: -2px; color: var(--color-ochre-600); margin-right: 4px;" aria-hidden="true">assignment_turned_in</span> Output: Sovereign Readiness Diagnostics</div>
-          </article>
-
-          <!-- Block 3: Position -->
-          <article class="app-card">
-            <div class="card-icon" aria-hidden="true"><span class="material-symbols-outlined icon-md">balance</span></div>
-            <div class="app-stage-number">Stage 03</div>
-            <h3>Position</h3>
-            <p>
-              Equip governments and regional blocs with empirical benchmarks, contract models, and unified regional postures—delivering analytical parity so African nations secure domestic refining, jobs, and sovereign equity.
-            </p>
-            <div class="app-metric"><span class="material-symbols-outlined icon-xs" style="vertical-align: -2px; color: var(--color-ochre-600); margin-right: 4px;" aria-hidden="true">handshake</span> Output: Value Retention Benchmarks &amp; Alignment</div>
-          </article>
-        </div>
-
-        <div style="margin-top: var(--space-2xl); text-align: center;">
-          <a href="what-we-do.html" class="btn btn--outline">View our five core institutional services <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_forward</span></a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Proof of Model: C MINK Section -->
-    <section class="section section--dark" aria-labelledby="cmink-home-title">
-      <div class="container">
-        <div class="c-mink-spotlight" style="background-color: var(--color-slate-850); border-color: var(--color-slate-700); color: #ffffff;">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
-            <div>
-              <span class="status-badge" style="background: rgba(217, 130, 0, 0.15); color: #ffd880; border-color: #d98200;">
-                <span class="material-symbols-outlined icon-xs" style="vertical-align: -2px; margin-right: 2px;" aria-hidden="true">science</span> Current Priority • Initial Proof of Concept
-              </span>
-              <h2 id="cmink-home-title" style="color: #ffffff; margin-bottom: var(--space-sm);">
-                C MINK: Critical Minerals Intelligence and Knowledge Platform for Africa
-              </h2>
-            </div>
-            <a href="c-mink.html" class="btn btn--accent btn--sm">View C MINK Status &amp; Roadmap <span class="material-symbols-outlined icon-xs" aria-hidden="true">arrow_forward</span></a>
-          </div>
-
-          <p style="color: var(--color-slate-200); font-size: 1.05rem; line-height: 1.6; max-width: 900px;">
-            C MINK is RAFA's foundational proof of concept. It addresses the systemic deficit of independent, cross-border intelligence on Africa's transition minerals—including lithium, cobalt, graphite, manganese, nickel, and copper. By integrating verified geological data, asset ownership tracking, and fiscal benchmark analytics, C MINK tests whether unified African data can alter sovereign negotiation outcomes.
-          </p>
-
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-md); margin-top: var(--space-lg); padding-top: var(--space-lg); border-top: 1px solid var(--color-slate-700);">
-            <div>
-              <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-ochre-300); text-transform: uppercase; display: flex; align-items: center; gap: 0.35rem;"><span class="material-symbols-outlined icon-xs" aria-hidden="true">explore</span> Current Scope</div>
-              <p style="font-size: 0.9375rem; color: var(--color-slate-200); margin-top: 0.25rem;">
-                Initial taxonomy mapping and data integration across pilot Southern and Central African mineral corridors.
-              </p>
-            </div>
-            <div>
-              <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-ochre-300); text-transform: uppercase; display: flex; align-items: center; gap: 0.35rem;"><span class="material-symbols-outlined icon-xs" aria-hidden="true">biotech</span> Validation Methodology</div>
-              <p style="font-size: 0.9375rem; color: var(--color-slate-200); margin-top: 0.25rem;">
-                Closed-door technical stress-testing with select state geological agencies and regional economic bodies.
-              </p>
-            </div>
-            <div>
-              <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-ochre-300); text-transform: uppercase; display: flex; align-items: center; gap: 0.35rem;"><span class="material-symbols-outlined icon-xs" aria-hidden="true">verified</span> Approved Outputs</div>
-              <div style="margin-top: 0.25rem;">
-                <span class="rafa-placeholder">[C MINK STATUS AND PILOT METRICS SUBJECT TO PEER REVIEW]</span>
+          <div class="col-lg-5">
+            <div class="intelligence-card reveal">
+              <div class="intelligence-card__top">
+                <span class="intelligence-card__label">A clearer view of change</span>
+                <span class="intelligence-card__mark" aria-hidden="true"><i data-lucide="orbit"></i></span>
+              </div>
+              <div class="signal-map" role="group" aria-label="RAFA connects intelligence about markets, technology, policy, finance and geopolitics">
+                <span class="signal signal--markets"><i data-lucide="chart-no-axes-combined" aria-hidden="true"></i> Markets</span>
+                <span class="signal signal--technology"><i data-lucide="cpu" aria-hidden="true"></i> Technology</span>
+                <span class="signal signal--policy"><i data-lucide="landmark" aria-hidden="true"></i> Policy</span>
+                <span class="signal signal--finance"><i data-lucide="coins" aria-hidden="true"></i> Finance</span>
+                <span class="signal signal--geopolitics"><i data-lucide="globe-2" aria-hidden="true"></i> Geopolitics</span>
+                <div class="signal-core">
+                  <img src="assets/images/rafa-icon.png" alt="" width="50" height="50">
+                  <span>Strategic<br>intelligence</span>
+                </div>
+              </div>
+              <div class="intelligence-card__footer">
+                <span><i data-lucide="map-pinned" aria-hidden="true"></i> Africa-centred perspective</span>
+                <span>01 — 03</span>
               </div>
             </div>
           </div>
-
         </div>
+        <a class="scroll-cue d-none d-lg-inline-flex" href="#about"><span>Explore the story</span></a>
       </div>
     </section>
 
-    <!-- Audience Pathways ("Who We Work With") -->
-    <section class="section section--sand" aria-labelledby="pathways-title">
+    <section class="intro-section section-pad" id="about">
       <div class="container">
-        <div style="max-width: 800px;">
-          <span class="eyebrow">Institutional Engagement</span>
-          <h2 id="pathways-title">Who we work with: Qualified institutional pathways.</h2>
-        </div>
-
-        <div class="pathways-grid">
-          
-          <!-- Pathway 1: Governments and Public Institutions -->
-          <article class="pathway-card">
-            <div class="pathway-icon" aria-hidden="true"><span class="material-symbols-outlined icon-lg">account_balance</span></div>
-            <h3>Governments &amp; Public Institutions</h3>
-            <p>
-              Cabinet offices, ministries of mines and energy, revenue authorities, and state-owned enterprises requiring sovereign analytical backstopping.
-            </p>
-            <div class="pathway-boundary">
-              <strong>Confidential support:</strong> Direct, non-public advisory and readiness audits conducted under sovereign confidentiality protocols.
-            </div>
-            <div class="pathway-action">
-              <a href="engage.html#briefing-section" class="pathway-link">
-                Request a strategic briefing or readiness diagnostic <span class="material-symbols-outlined icon-xs" aria-hidden="true">arrow_forward</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- Pathway 2: AU, ECA, RECs and AfCFTA Actors -->
-          <article class="pathway-card">
-            <div class="pathway-icon" aria-hidden="true"><span class="material-symbols-outlined icon-lg">public</span></div>
-            <h3>AU, ECA, RECs &amp; AfCFTA Actors</h3>
-            <p>
-              Continental organs and regional economic commissions coordinating cross-border infrastructure, critical raw material corridors, and common market rules.
-            </p>
-            <div class="pathway-boundary">
-              <strong>Continental alignment:</strong> Harmonizing trade rules of origin, regional value-chains, and unified negotiation postures.
-            </div>
-            <div class="pathway-action">
-              <a href="engage.html#partnership-section" class="pathway-link">
-                Co-convene or share intelligence <span class="material-symbols-outlined icon-xs" aria-hidden="true">arrow_forward</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- Pathway 3: Research Institutions and Experts -->
-          <article class="pathway-card">
-            <div class="pathway-icon" aria-hidden="true"><span class="material-symbols-outlined icon-lg">science</span></div>
-            <h3>Research Institutions &amp; Experts</h3>
-            <p>
-              African universities, policy think tanks, geologists, mineral economists, and transition legal scholars dedicated to empirical rigor.
-            </p>
-            <div class="pathway-boundary">
-              <strong>Knowledge co-production:</strong> Peer-reviewed methodological contributions and collaborative empirical data collection.
-            </div>
-            <div class="pathway-action">
-              <a href="engage.html#partnership-section" class="pathway-link">
-                Co-produce evidence or contribute expertise <span class="material-symbols-outlined icon-xs" aria-hidden="true">arrow_forward</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- Pathway 4: Funders and Development Partners -->
-          <article class="pathway-card">
-            <div class="pathway-icon" aria-hidden="true"><span class="material-symbols-outlined icon-lg">shield</span></div>
-            <h3>Funders &amp; Development Partners</h3>
-            <p>
-              Philanthropic foundations, development finance institutions, and sovereign partners investing in African analytical independence.
-            </p>
-            <div class="pathway-boundary">
-              <strong>Governance safeguards:</strong> Core institutional funding strictly isolated from editorial interference or policy prescription.
-            </div>
-            <div class="pathway-action">
-              <a href="engage.html#partnership-section" class="pathway-link">
-                Discuss institutional support <span class="material-symbols-outlined icon-xs" aria-hidden="true">arrow_forward</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- Pathway 5: Industry, Finance & Technology Actors -->
-          <article class="pathway-card">
-            <div class="pathway-icon" aria-hidden="true"><span class="material-symbols-outlined icon-lg">factory</span></div>
-            <h3>Industry, Finance &amp; Technology</h3>
-            <p>
-              Responsible industrial developers, commercial lenders, and technology providers seeking sustainable African partnership frameworks.
-            </p>
-            <div class="pathway-boundary">
-              <strong>Public-purpose boundaries:</strong> Evidence partnerships that respect statutory firewalls. Zero commercial representation or lobbying.
-            </div>
-            <div class="pathway-action">
-              <a href="engage.html#partnership-section" class="pathway-link">
-                Join an evidence partnership <span class="material-symbols-outlined icon-xs" aria-hidden="true">arrow_forward</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- Pathway 6: Media and Civil Society -->
-          <article class="pathway-card">
-            <div class="pathway-icon" aria-hidden="true"><span class="material-symbols-outlined icon-lg">forum</span></div>
-            <h3>Media &amp; Civil Society</h3>
-            <p>
-              Journalists, investigative analysts, and civic accountability organizations tracking sovereign resource governance and transition integrity.
-            </p>
-            <div class="pathway-boundary">
-              <strong>Public data access:</strong> Open briefs, verified errata, transparent data notes, and factual background briefings.
-            </div>
-            <div class="pathway-action">
-              <a href="insights.html" class="pathway-link">
-                Use insights, subscribe or request comment <span class="material-symbols-outlined icon-xs" aria-hidden="true">arrow_forward</span>
-              </a>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Primary Call to Action Banner -->
-    <section class="section section--bordered" aria-labelledby="cta-banner-title">
-      <div class="container">
-        <div class="cta-banner">
-          <div style="max-width: 680px;">
-            <h2 id="cta-banner-title" style="color: #ffffff; margin-bottom: var(--space-xs);">
-              Initiate a confidential strategic dialogue.
-            </h2>
-            <p style="color: var(--color-slate-200); margin: 0; font-size: 1.05rem;">
-              Whether preparing for complex bilateral mineral negotiations, evaluating transition policy readiness, or convening regional peers, RAFA provides independent analytical backstopping.
-            </p>
+        <div class="row align-items-start g-4 g-lg-5">
+          <div class="col-lg-5 reveal">
+            <p class="eyebrow"><span class="eyebrow__line" aria-hidden="true"></span> Why RAFA</p>
+            <h2 class="section-title">The transition is moving.<br><span>Africa should shape it.</span></h2>
           </div>
-          <div>
-            <a href="engage.html#briefing-section" class="btn btn--accent btn--lg" style="white-space: nowrap;"><span class="material-symbols-outlined icon-sm" aria-hidden="true">mail</span> Request a briefing <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_forward</span></a>
+          <div class="col-lg-6 offset-lg-1 reveal">
+            <p class="intro-copy">Resources, industrial policy, climate rules, technology and geopolitics now move together. Africa’s capabilities are deep but dispersed. Too often, countries are left responding after the terms have already been set.</p>
+            <p class="body-copy">RAFA is an independent, pan-African strategic intelligence institution. We connect complementary strengths and turn knowledge into practical insight for the decisions that determine who captures value from global transitions.</p>
+            <a class="text-link" href="pages/about.html">Get to know RAFA</a>
+          </div>
+        </div>
+        <div class="row g-3 g-lg-4 mt-4 mt-lg-5">
+          <div class="col-md-4 reveal">
+            <article class="signal-card">
+              <span class="signal-card__number">01</span>
+              <h3>Change is accelerating</h3>
+              <p>Markets, technologies, climate rules and geopolitics are reshaping the strategic value of resources.</p>
+            </article>
+          </div>
+          <div class="col-md-4 reveal">
+            <article class="signal-card">
+              <span class="signal-card__number">02</span>
+              <h3>Choices have long tails</h3>
+              <p>Investment, policy and negotiation decisions today can shape value chains and public outcomes for years.</p>
+            </article>
+          </div>
+          <div class="col-md-4 reveal">
+            <article class="signal-card signal-card--accent">
+              <span class="signal-card__number">03</span>
+              <h3>Intelligence creates agency</h3>
+              <p>Clearer foresight helps institutions weigh trade-offs, prepare to respond and position with purpose.</p>
+            </article>
           </div>
         </div>
       </div>
     </section>
 
+    <section class="approach-section section-pad" id="approach">
+      <div class="container">
+        <div class="section-heading row align-items-end g-3 mb-4 mb-lg-5 reveal">
+          <div class="col-lg-8">
+            <p class="eyebrow eyebrow--light"><span class="eyebrow__line" aria-hidden="true"></span> The APP framework</p>
+            <h2 class="section-title section-title--light">Turn intelligence into agency.</h2>
+          </div>
+          <div class="col-lg-4">
+            <p class="section-intro section-intro--light">A practical approach for moving from early signals to stronger choices and greater influence.</p>
+          </div>
+        </div>
+
+        <div class="row g-3 g-lg-4">
+          <div class="col-md-4 reveal">
+            <article class="approach-card">
+              <div class="approach-card__head"><span class="approach-card__icon"><i data-lucide="telescope" aria-hidden="true"></i></span><span class="approach-card__step">01 / 03</span></div>
+              <h3>Anticipate</h3>
+              <p>Identify emerging risks, opportunities and structural shifts early enough to inform strategic choices.</p>
+              <span class="approach-card__outcome">See what is changing</span>
+            </article>
+          </div>
+          <div class="col-md-4 reveal">
+            <article class="approach-card">
+              <div class="approach-card__head"><span class="approach-card__icon"><i data-lucide="compass" aria-hidden="true"></i></span><span class="approach-card__step">02 / 03</span></div>
+              <h3>Prepare</h3>
+              <p>Strengthen the knowledge, analytical and institutional capabilities and partnerships needed to respond.</p>
+              <span class="approach-card__outcome">Build readiness to act</span>
+            </article>
+          </div>
+          <div class="col-md-4 reveal">
+            <article class="approach-card approach-card--last">
+              <div class="approach-card__head"><span class="approach-card__icon"><i data-lucide="target" aria-hidden="true"></i></span><span class="approach-card__step">03 / 03</span></div>
+              <h3>Position</h3>
+              <p>Support countries to negotiate effectively, shape markets and policy, and capture greater value across value chains.</p>
+              <span class="approach-card__outcome">Shape what comes next</span>
+            </article>
+          </div>
+        </div>
+        <div class="approach-footnote reveal"><i data-lucide="infinity" aria-hidden="true"></i><span>Not a checklist. A connected cycle of intelligence, readiness and action.</span></div>
+      </div>
+    </section>
+
+    <section class="work-section section-pad" id="work">
+      <div class="container">
+        <div class="row g-4 align-items-end mb-4 mb-lg-5 reveal">
+          <div class="col-lg-7">
+            <p class="eyebrow"><span class="eyebrow__line" aria-hidden="true"></span> What we do</p>
+            <h2 class="section-title">Insight built for real decisions.</h2>
+          </div>
+          <div class="col-lg-5"><p class="section-intro">We bring analysis, people and institutions together around the strategic questions that matter.</p></div>
+        </div>
+        <div class="row g-3 g-lg-4">
+          <div class="col-md-6 col-lg-4 reveal">
+            <article class="work-card">
+              <i data-lucide="chart-no-axes-combined" aria-hidden="true"></i>
+              <h3>Strategic intelligence &amp; analytics</h3>
+              <p>Evidence on resources, markets, value chains, investment and political economy.</p>
+              <span class="work-card__index">01</span>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <article class="work-card">
+              <i data-lucide="telescope" aria-hidden="true"></i>
+              <h3>Foresight &amp; anticipatory analysis</h3>
+              <p>Forward-looking scenarios on emerging risks, opportunities and structural shifts.</p>
+              <span class="work-card__index">02</span>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <article class="work-card">
+              <i data-lucide="scale" aria-hidden="true"></i>
+              <h3>Strategic &amp; institutional support</h3>
+              <p>Demand-driven support to weigh choices, manage trade-offs and negotiate.</p>
+              <span class="work-card__index">03</span>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <article class="work-card">
+              <i data-lucide="book-open-text" aria-hidden="true"></i>
+              <h3>Narrative &amp; knowledge</h3>
+              <p>Africa-centred perspectives that interrogate prevailing assumptions and widen the debate.</p>
+              <span class="work-card__index">04</span>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <article class="work-card">
+              <i data-lucide="network" aria-hidden="true"></i>
+              <h3>Convening &amp; applied learning</h3>
+              <p>Partnership, exchange and South–South learning across governments and institutions.</p>
+              <span class="work-card__index">05</span>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <a class="work-card work-card--link" href="pages/what-we-do.html">
+              <span class="work-card__link-icon" aria-hidden="true"></span>
+              <span class="eyebrow">Explore the work</span>
+              <h3>See how RAFA can support your priorities.</h3>
+              <span class="text-link">Our services</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="programme-section">
+      <div class="container">
+        <div class="programme-card reveal">
+          <div class="programme-card__art" aria-hidden="true">
+            <div class="programme-orbit programme-orbit--one"></div>
+            <div class="programme-orbit programme-orbit--two"></div>
+            <span class="programme-art__label">DATA · INSIGHT · AGENCY</span>
+            <i data-lucide="layers-3"></i>
+          </div>
+          <div class="programme-card__copy">
+            <p class="eyebrow"><span class="eyebrow__line" aria-hidden="true"></span> A RAFA programme</p>
+            <h2>C MINK</h2>
+            <p class="programme-card__lead">Critical Minerals Intelligence and Knowledge Platform for Africa</p>
+            <p class="body-copy">Explore RAFA’s work to connect critical-minerals intelligence and knowledge across the continent.</p>
+            <a class="text-link" href="pages/c-mink.html">Discover C MINK</a>
+          </div>
+          <span class="programme-card__number" aria-hidden="true">01</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="partners-section section-pad" id="partners">
+      <div class="container">
+        <div class="row align-items-end g-4 mb-4 mb-lg-5 reveal">
+          <div class="col-lg-7">
+            <p class="eyebrow"><span class="eyebrow__line" aria-hidden="true"></span> Who we work with</p>
+            <h2 class="section-title">No single institution sees the whole transition.</h2>
+          </div>
+          <div class="col-lg-5"><p class="section-intro">RAFA connects complementary strengths and works with partners who share a commitment to African agency and public purpose.</p></div>
+        </div>
+        <div class="row g-3 g-lg-4">
+          <div class="col-md-6 col-lg-3 reveal">
+            <article class="partner-card">
+              <span class="partner-card__icon"><i data-lucide="landmark" aria-hidden="true"></i></span>
+              <h3>Public institutions</h3>
+              <p>Intelligence for governments, regional bodies and institutions making consequential choices.</p>
+              <a href="pages/engage.html#briefing-section" aria-label="Public institutions: request a briefing">Request a briefing</a>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal">
+            <article class="partner-card">
+              <span class="partner-card__icon"><i data-lucide="flask-conical" aria-hidden="true"></i></span>
+              <h3>Research &amp; data institutions</h3>
+              <p>Joint production, peer review and stronger links between research and policy.</p>
+              <a href="pages/engage.html#partnership-section" aria-label="Research institutions: explore a partnership">Explore a partnership</a>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal">
+            <article class="partner-card">
+              <span class="partner-card__icon"><i data-lucide="users-round" aria-hidden="true"></i></span>
+              <h3>Experts &amp; practitioners</h3>
+              <p>Knowledge and experience brought to bear on the questions shaping Africa’s future.</p>
+              <a href="pages/engage.html#partnership-section" aria-label="Experts: share your expertise">Share your expertise</a>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal">
+            <article class="partner-card">
+              <span class="partner-card__icon"><i data-lucide="handshake" aria-hidden="true"></i></span>
+              <h3>Enabling partners</h3>
+              <p>Funders, convenors and communicators enabling independent, Africa-anchored intelligence.</p>
+              <a href="pages/engage.html#partnership-section" aria-label="Enabling partners: start a conversation">Start a conversation</a>
+            </article>
+          </div>
+        </div>
+        <div class="principles-strip reveal">
+          <div><i data-lucide="shield-check" aria-hidden="true"></i><span>Partnership built on principle</span></div>
+          <p>Africa-centred priorities <span>·</span> Independence <span>·</span> Evidence and contestability <span>·</span> Complementarity, not duplication <span>·</span> Public purpose</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section section-pad">
+      <div class="container">
+        <div class="row g-4 g-lg-5">
+          <div class="col-lg-4 reveal">
+            <p class="eyebrow"><span class="eyebrow__line" aria-hidden="true"></span> A few useful answers</p>
+            <h2 class="section-title">Good questions.<br>Clear answers.</h2>
+            <p class="body-copy">Want to know more? We’d be glad to hear from you.</p>
+            <a class="text-link" href="pages/engage.html">Contact the RAFA team</a>
+          </div>
+          <div class="col-lg-7 offset-lg-1 reveal">
+            <details class="faq-item">
+              <summary>What does “strategic intelligence” mean?</summary>
+              <p>It is timely, independent and actionable insight on markets, technologies, regulation, finance and geopolitics — to help clarify trade-offs and support consequential decisions.</p>
+            </details>
+            <details class="faq-item">
+              <summary>How is RAFA different from a traditional consultancy?</summary>
+              <p>RAFA is designed as an independent, Africa-anchored, public-purpose institution. Partners may commission work, but do not predetermine or alter its conclusions.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Can we start a partnership conversation now?</summary>
+              <p>Yes. Partnership conversations can begin with a shared strategic question, an intelligence gap, the right collaborators and a useful joint output.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="contact-section__pattern" aria-hidden="true"></div>
+      <div class="container position-relative">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-8 reveal">
+            <p class="eyebrow eyebrow--light"><span class="eyebrow__line" aria-hidden="true"></span> Bring a strategic question</p>
+            <h2>Let’s shape a better-informed future for Africa.</h2>
+            <p>Start with a consequential decision, an intelligence gap and the people who can help answer it.</p>
+          </div>
+          <div class="col-lg-4 text-lg-end reveal">
+            <a class="btn btn-rafa btn-rafa--gold" href="pages/engage.html#briefing-section">Start a conversation</a>
+            <a class="contact-secondary-link" href="pages/engage.html#partnership-section">Or explore a partnership</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- Universal Footer -->
-  <footer class="site-footer" role="contentinfo">
+  <footer class="site-footer">
     <div class="container">
-      <div class="footer-grid">
-        
-        <!-- Col 1: Institutional Identity -->
-        <div class="footer-col">
-          <a href="index.html" class="footer-logo-link" aria-label="RAFA Home">
-            <img src="assets/rafa-logo-light.png" alt="RAFA — Resource Analytics for Future Africa" class="footer-logo" />
+      <div class="row g-4 g-lg-5 footer-main">
+        <div class="col-lg-4">
+          <a class="footer-brand" href="index.html" aria-label="RAFA home">
+            <img src="assets/images/rafa-logo-light.png" alt="Resource Analytics for Future Africa" width="190" height="58">
           </a>
-          <p style="font-size: 0.875rem; color: var(--color-slate-300); line-height: 1.6;">
-            Resource Analytics for Future Africa is an Africa-centred strategic-intelligence institution dedicated to consequential resource and transition decisions.
-          </p>
-          <div style="margin-top: var(--space-md); font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-slate-400);">
-            Legal Status: <span class="rafa-placeholder">[LEGAL STATUS TO BE CONFIRMED]</span>
-          </div>
+          <p>Independent, pan-African strategic intelligence for the decisions shaping Africa’s resources and transitions.</p>
         </div>
-
-        <!-- Col 2: Navigation -->
-        <div class="footer-col">
-          <h4>Institution</h4>
+        <div class="col-6 col-lg-2 offset-lg-1">
+          <h2>Explore</h2>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About &amp; Principles</a></li>
-            <li><a href="what-we-do.html">What We Do</a></li>
-            <li><a href="c-mink.html">C MINK &amp; Programmes</a></li>
-            <li><a href="insights.html">Insights Library</a></li>
-            <li><a href="people.html">People &amp; Transparency</a></li>
-            <li><a href="engage.html">Engage &amp; Contact</a></li>
+            <li><a href="pages/about.html">About RAFA</a></li>
+            <li><a href="pages/what-we-do.html">What we do</a></li>
+            <li><a href="pages/insights.html">Insights</a></li>
+            <li><a href="pages/people.html">People &amp; transparency</a></li>
           </ul>
         </div>
-
-        <!-- Col 3: Pillars & Offerings -->
-        <div class="footer-col">
-          <h4>Content Pillars</h4>
+        <div class="col-6 col-lg-2">
+          <h2>Programmes</h2>
           <ul>
-            <li><a href="insights.html">Signals and foresight</a></li>
-            <li><a href="insights.html">Readiness and choices</a></li>
-            <li><a href="insights.html">Positioning and value capture</a></li>
-            <li><a href="insights.html">RAFA in action</a></li>
-            <li><a href="insights.html">Institution and trust</a></li>
+            <li><a href="pages/c-mink.html">C MINK</a></li>
+            <li><a href="#approach">The APP framework</a></li>
+            <li><a href="#partners">Partnerships</a></li>
           </ul>
         </div>
-
-        <!-- Col 4: Institutional Contact -->
-        <div class="footer-col">
-          <h4>Engagement</h4>
-          <p style="font-size: 0.875rem; color: var(--color-slate-300); margin-bottom: 0.5rem;">
-            <span class="material-symbols-outlined icon-xs" style="vertical-align: -2px; color: var(--color-ochre-300); margin-right: 4px;" aria-hidden="true">location_on</span>Headquarters Secretariat: <br>
-            <span class="rafa-placeholder">[SECRETARIAT HEADQUARTERS TO BE CONFIRMED]</span>
-          </p>
-          <p style="font-size: 0.875rem; color: var(--color-slate-300); margin-bottom: 0.75rem;">
-            <span class="material-symbols-outlined icon-xs" style="vertical-align: -2px; color: var(--color-ochre-300); margin-right: 4px;" aria-hidden="true">mail</span>Official Email: <br>
-            <span class="rafa-placeholder">[CONTACT EMAIL]</span>
-          </p>
-          <p style="font-size: 0.875rem;">
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.35rem; color: var(--color-ochre-300);">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-              RAFA on LinkedIn
-            </a>
-          </p>
+        <div class="col-lg-3">
+          <h2>Get in touch</h2>
+          <p>For briefings, partnership ideas or general enquiries, contact the RAFA Secretariat.</p>
+          <a class="footer-contact-link" href="pages/engage.html">Contact RAFA</a>
         </div>
-
       </div>
-
-      <!-- Bottom Bar -->
       <div class="footer-bottom">
-        <div>
-          &copy; 2026 Resource Analytics for Future Africa (RAFA). All rights reserved.
-        </div>
-        <div class="footer-bottom-links">
-          <a href="#" data-open-modal="privacy-modal"><span class="material-symbols-outlined icon-xs" style="vertical-align: -2px; margin-right: 3px;" aria-hidden="true">shield</span> Privacy Policy &amp; Data Notice</a>
-          <span>•</span>
-          <a href="#" data-open-modal="accessibility-modal"><span class="material-symbols-outlined icon-xs" style="vertical-align: -2px; margin-right: 3px;" aria-hidden="true">accessibility_new</span> Accessibility Statement (WCAG 2.2 AA)</a>
-          <span>•</span>
-          <span class="last-reviewed-tag">Page Last Reviewed: 18 October 2026</span>
-        </div>
+        <p>© <span id="current-year">2026</span> Resource Analytics for Future Africa (RAFA)</p>
+        <p>Independent, pan-African intelligence for decisions that shape Africa’s future.</p>
+        <a href="#main-content">Back to top</a>
       </div>
     </div>
   </footer>
 
-
-  <!-- Reusable Accessible Modals -->
-  
-  <!-- Privacy Modal -->
-  <dialog class="modal" id="privacy-modal" aria-labelledby="privacy-modal-title">
-    <div class="modal-header">
-      <h3 id="privacy-modal-title">Institutional Privacy Policy &amp; Sovereign Data Notice</h3>
-      <button class="modal-close-btn" data-close-modal aria-label="Close dialog">&times;</button>
-    </div>
-    <div class="modal-body">
-      <h4>Commitment to Sovereign Data Privacy</h4>
-      <p>Resource Analytics for Future Africa (RAFA) respects the confidentiality of public institutions, researchers, and strategic partners. This site collects only information volunteered directly through our briefing request and digest subscription mechanisms.</p>
-      
-      <h4>Data Protection Principles</h4>
-      <ul>
-        <li><strong>No Commercial Tracking:</strong> We do not deploy third-party advertising trackers or sell institutional visitor metadata.</li>
-        <li><strong>Data Minimization:</strong> We only collect information strictly required to evaluate and respond to institutional inquiries.</li>
-        <li><strong>Confidentiality Safeguards:</strong> Inquiries submitted by government officials are restricted to vetted secretariat liaison officers.</li>
-      </ul>
-
-      <h4>Sensitive Inquiries</h4>
-      <p>Do not transmit classified state secrets, proprietary concession negotiation drafts, or sensitive legal files via this public web portal. Secure cryptographic channels are coordinated directly with verified institutional counterparts.</p>
-      
-      <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-slate-500); margin-top: 1rem;">
-        Policy Reference: RAFA-POL-PRIV-2026-v1.2 • Approved by Secretariat Oversight.
-      </p>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn--primary btn--sm" data-close-modal>Acknowledge &amp; Close</button>
-    </div>
-  </dialog>
-
-  <!-- Accessibility Statement Modal -->
-  <dialog class="modal" id="accessibility-modal" aria-labelledby="a11y-modal-title">
-    <div class="modal-header">
-      <h3 id="a11y-modal-title">Institutional Accessibility Statement (WCAG 2.2 AA)</h3>
-      <button class="modal-close-btn" data-close-modal aria-label="Close dialog">&times;</button>
-    </div>
-    <div class="modal-body">
-      <h4>Universal Access Standard</h4>
-      <p>RAFA is committed to ensuring our strategic intelligence is accessible to all public officials, researchers, and citizens across Africa and globally, including those utilizing assistive technologies or operating under low-bandwidth network constraints.</p>
-      
-      <h4>Technical Compliance</h4>
-      <ul>
-        <li><strong>WCAG 2.2 Level AA:</strong> High text contrast ratios (&ge; 4.5:1 for body copy), scalable typography, and structured landmark regions.</li>
-        <li><strong>Keyboard Navigation:</strong> All interactive elements, modal dialogs, and navigation drawers support full keyboard operability with visible focus indicators.</li>
-        <li><strong>Accessible Publications:</strong> Every policy brief is provided both as a semantic HTML reading view and as an accessible PDF designed to PDF/UA standards.</li>
-        <li><strong>Low-Bandwidth Optimization:</strong> Minimal external scripts, zero heavy commercial trackers, and lightweight inline SVG diagrams ensure rapid page load on 3G and rural connections.</li>
-      </ul>
-
-      <p style="font-size: 0.85rem; color: var(--color-slate-600); margin-top: 1rem;">
-        Feedback or accessibility barriers may be reported to: <span class="rafa-placeholder">[ACCESSIBILITY OFFICER EMAIL]</span>.
-      </p>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn--primary btn--sm" data-close-modal>Close</button>
-    </div>
-  </dialog>
-
-  <script src="js/main.js"></script>
+  <div class="gtranslate_wrapper"></div>
+  <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"languages":["en","it","es","tr","ar","nl","zh-CN","fr","pt","id"],"wrapper_selector":".gtranslate_wrapper"}</script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+  <script src="js/site-data.js"></script>
+  <script src="js/home.js" defer></script>
 </body>
 </html>

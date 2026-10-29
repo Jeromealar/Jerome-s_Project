@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#123f35">
+  <title>Website admin preview | RAFA</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+  <aside class="admin-sidebar">
+    <a class="admin-brand" href="../index.html">
+      <img src="../assets/images/rafa-logo.png" alt="RAFA">
+      <span>Website admin</span>
+    </a>
+    <nav class="admin-nav" aria-label="Admin sections">
+      <button class="admin-nav__item is-active" type="button" data-panel="overview"><i data-lucide="layout-dashboard" aria-hidden="true"></i> Overview</button>
+      <button class="admin-nav__item" type="button" data-panel="event"><i data-lucide="calendar-days" aria-hidden="true"></i> Events</button>
+      <button class="admin-nav__item" type="button" data-panel="publications"><i data-lucide="library-big" aria-hidden="true"></i> Insights library</button>
+      <button class="admin-nav__item" type="button" data-panel="contacts"><i data-lucide="contact-round" aria-hidden="true"></i> Contacts &amp; emails</button>
+      <button class="admin-nav__item" type="button" data-panel="inbox"><i data-lucide="inbox" aria-hidden="true"></i> Inbox <span class="admin-nav__count" id="nav-inbox-count">0</span></button>
+    </nav>
+    <div class="admin-sidebar__bottom">
+      <span class="demo-badge"><span aria-hidden="true"></span> Preview mode</span>
+      <a href="../index.html">View public website</a>
+    </div>
+  </aside>
+
+  <main class="admin-main">
+    <header class="admin-topbar">
+      <button class="admin-mobile-menu" id="mobile-menu-toggle" type="button" aria-label="Open admin navigation"><i data-lucide="menu" aria-hidden="true"></i></button>
+      <div>
+        <p class="admin-topbar__eyebrow">RAFA · SITE MANAGEMENT</p>
+        <h1 id="page-title">Overview</h1>
+      </div>
+      <span class="demo-badge demo-badge--top"><span aria-hidden="true"></span> Preview mode</span>
+    </header>
+
+    <section class="demo-notice" aria-label="Preview limitations">
+      <i data-lucide="info" aria-hidden="true"></i>
+      <p><strong>This is a working preview.</strong> Changes and messages are saved only in this browser. They are not shared across devices and no email notifications are sent.</p>
+    </section>
+
+    <div class="admin-status" id="admin-status" role="status" aria-live="polite"></div>
+
+    <section class="admin-panel is-active" data-panel-content="overview">
+      <div class="panel-heading">
+        <div><p class="admin-eyebrow">YOUR WEBSITE AT A GLANCE</p><h2>Welcome to your site dashboard</h2><p>Manage the details visitors see and keep track of their questions.</p></div>
+      </div>
+      <div class="overview-grid">
+        <article class="overview-card"><span class="overview-card__icon"><i data-lucide="calendar-days" aria-hidden="true"></i></span><span class="overview-card__label">Upcoming events</span><strong id="overview-event-name">—</strong><small id="overview-event-date">—</small><button type="button" class="inline-action" data-open-panel="event">Manage events</button></article>
+        <article class="overview-card"><span class="overview-card__icon"><i data-lucide="mail" aria-hidden="true"></i></span><span class="overview-card__label">Inbox</span><strong id="overview-inquiry-count">0</strong><small id="overview-unread-count">No new messages</small><button type="button" class="inline-action" data-open-panel="inbox">View inquiries</button></article>
+        <article class="overview-card"><span class="overview-card__icon"><i data-lucide="contact-round" aria-hidden="true"></i></span><span class="overview-card__label">Contact emails</span><strong id="overview-contact-count">0</strong><small>Added to the public website</small><button type="button" class="inline-action" data-open-panel="contacts">Manage contacts</button></article>
+        <article class="overview-card"><span class="overview-card__icon"><i data-lucide="book-open-text" aria-hidden="true"></i></span><span class="overview-card__label">Library articles</span><strong id="overview-publication-count">0</strong><small>PDFs added in this browser</small><button type="button" class="inline-action" data-open-panel="publications">Manage library</button></article>
+      </div>
+      <article class="admin-card overview-help">
+        <div class="overview-help__icon"><i data-lucide="mouse-pointer-click" aria-hidden="true"></i></div>
+        <div><h3>What would you like to update?</h3><p>Manage your event calendar, add official contact details or open questions sent through the public inquiry forms.</p><div class="overview-help__links"><button type="button" class="btn btn-admin" data-open-panel="event">Manage events</button><button type="button" class="btn btn-admin btn-admin--outline" data-open-panel="contacts">Add contact details</button></div></div>
+      </article>
+    </section>
+
+    <section class="admin-panel" data-panel-content="event" hidden>
+      <div class="panel-heading panel-heading--inbox"><div><p class="admin-eyebrow">PUBLIC WEBSITE CONTENT</p><h2>Manage events</h2><p>Add upcoming events, update their details or remove events that have passed.</p></div><button class="btn btn-admin" id="new-event-button" type="button"><i data-lucide="plus" aria-hidden="true"></i> Add event</button></div>
+      <div class="admin-card event-list" id="event-list" aria-label="Existing events"></div>
+      <form class="admin-card admin-form" id="event-form" hidden>
+        <input type="hidden" name="eventId">
+        <div class="form-grid">
+          <label class="admin-field admin-field--full"><span>Event name</span><input name="name" required maxlength="80" placeholder="e.g. COP31"></label>
+          <label class="admin-field admin-field--full"><span>Session heading</span><input name="headline" required maxlength="120"></label>
+          <label class="admin-field admin-field--full"><span>Session title</span><input name="session" required maxlength="160"></label>
+          <label class="admin-field admin-field--full"><span>Invitation text</span><textarea name="description" rows="3" required maxlength="500"></textarea></label>
+          <label class="admin-field"><span>Start date</span><input type="date" name="startDate" required></label>
+          <label class="admin-field"><span>End date</span><input type="date" name="endDate" required></label>
+          <label class="admin-field"><span>Venue</span><input name="venue" required maxlength="100" placeholder="e.g. Africa Pavilion"></label>
+          <label class="admin-field"><span>City and country</span><input name="location" required maxlength="100" placeholder="e.g. Antalya, Türkiye"></label>
+        </div>
+        <div class="form-actions"><span>Changes update the public site in this browser.</span><div class="d-flex gap-2"><button class="btn btn-admin btn-admin--outline" id="cancel-event-button" type="button">Cancel</button><button class="btn btn-admin" id="save-event-button" type="submit"><i data-lucide="check" aria-hidden="true"></i> Save event</button></div></div>
+      </form>
+    </section>
+
+    <section class="admin-panel" data-panel-content="publications" hidden>
+      <div class="panel-heading panel-heading--inbox">
+        <div><p class="admin-eyebrow">PUBLIC WEBSITE CONTENT</p><h2>Insights library</h2><p>Add a PDF publication and its details to the public Insights Library.</p></div>
+        <button class="btn btn-admin" id="new-publication-button" type="button"><i data-lucide="plus" aria-hidden="true"></i> Add article</button>
+      </div>
+      <div class="admin-card publication-list" id="publication-list" aria-label="Uploaded library articles"></div>
+      <form class="admin-card admin-form" id="publication-form" hidden>
+        <div class="form-grid">
+          <label class="admin-field admin-field--full"><span>Article title</span><input name="title" required maxlength="180" placeholder="Publication title"></label>
+          <label class="admin-field"><span>Lead author</span><input name="author" required maxlength="100" placeholder="Author or team"></label>
+          <label class="admin-field"><span>Publication date</span><input name="date" type="date" required></label>
+          <label class="admin-field"><span>Content pillar</span><select name="pillar" required><option value="" selected disabled>Choose a pillar</option><option>Signals and foresight</option><option>Readiness and choices</option><option>Positioning and value capture</option><option>RAFA in action</option><option>Institution and trust</option></select></label>
+          <label class="admin-field"><span>Publication format</span><select name="type" required><option value="" selected disabled>Choose a format</option><option>Decision Brief</option><option>Methods Note</option><option>Case Study</option><option>Report</option></select></label>
+          <label class="admin-field admin-field--full"><span>Short description</span><textarea name="abstract" rows="3" required maxlength="600" placeholder="What should readers know about this publication?"></textarea></label>
+          <label class="admin-field admin-field--full"><span>Article PDF</span><input name="file" type="file" accept=".pdf,application/pdf" required><small>Choose a PDF publication. It will be saved in this browser’s local library preview.</small></label>
+        </div>
+        <div class="form-actions"><span>For this preview, the file is available only in this browser.</span><div class="d-flex gap-2"><button class="btn btn-admin btn-admin--outline" id="cancel-publication-button" type="button">Cancel</button><button class="btn btn-admin" id="save-publication-button" type="submit"><i data-lucide="upload" aria-hidden="true"></i> Publish article</button></div></div>
+      </form>
+    </section>
+
+    <section class="admin-panel" data-panel-content="contacts" hidden>
+      <div class="panel-heading"><div><p class="admin-eyebrow">PUBLIC WEBSITE CONTENT</p><h2>Contacts &amp; email addresses</h2><p>Add the official contact details you want visitors to see across the site.</p></div></div>
+      <form class="admin-card admin-form" id="contacts-form">
+        <div class="form-grid">
+          <label class="admin-field admin-field--full"><span>General enquiries email</span><input name="generalEmail" type="email" placeholder="hello@example.org"><small>Shown for general enquiries and in site footers.</small></label>
+          <label class="admin-field"><span>Partnership enquiries email</span><input name="partnershipEmail" type="email" placeholder="partnerships@example.org"></label>
+          <label class="admin-field"><span>Diplomatic / institutional email</span><input name="diplomaticEmail" type="email" placeholder="liaison@example.org"></label>
+          <label class="admin-field"><span>Media / press enquiries email</span><input name="mediaEmail" type="email" placeholder="media@example.org"></label>
+          <label class="admin-field admin-field--full"><span>Headquarters / mailing address</span><textarea name="headquarters" rows="2" maxlength="240" placeholder="Official address for public enquiries"></textarea></label>
+        </div>
+        <div class="form-actions"><span>Leave a field empty to show the contact form instead.</span><button class="btn btn-admin" type="submit"><i data-lucide="check" aria-hidden="true"></i> Save contacts</button></div>
+      </form>
+      <div class="admin-card contacts-note"><i data-lucide="clipboard-list" aria-hidden="true"></i><div><strong>Facts to confirm before publishing</strong><p>General enquiries email; briefing and diplomatic liaison email; partnerships email; media and press email; official Secretariat / mailing address (including office, city, country and postal code, if applicable). These must be verified RAFA details, not example addresses.</p></div></div>
+    </section>
+
+    <section class="admin-panel" data-panel-content="inbox" hidden>
+      <div class="panel-heading panel-heading--inbox"><div><p class="admin-eyebrow">VISITOR MESSAGES</p><h2>Your inquiry inbox</h2><p>Questions and briefing requests sent through the public website appear here.</p></div><span class="inbox-total" id="inbox-total">0 messages</span></div>
+      <div class="inbox-layout">
+        <div class="admin-card inbox-list" id="inbox-list" aria-label="Visitor inquiries"></div>
+        <article class="admin-card inbox-detail" id="inbox-detail"><div class="inbox-empty"><i data-lucide="mail-open" aria-hidden="true"></i><h3>Select a message</h3><p>Choose an inquiry from your inbox to read it.</p></div></article>
+      </div>
+    </section>
+
+    <footer class="admin-footer"><span>RAFA website admin · Preview</span><a href="../index.html">Return to public website</a></footer>
+  </main>
+  <script src="../js/site-data.js"></script>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+  <script src="../js/admin.js" defer></script>
+</body>
+</html>

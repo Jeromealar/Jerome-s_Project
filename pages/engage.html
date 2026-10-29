@@ -10,9 +10,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" type="image/png" href="assets/rafa-icon.png">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/gtranslate.css">
+  <link rel="icon" type="image/png" href="../assets/images/rafa-icon.png">
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
 </head>
 <body>
 
@@ -20,28 +21,10 @@
 
   <!-- Universal Header -->
   <header class="site-header" role="banner">
-    <div class="header-topbar">
-      <div class="container">
-        <div class="topbar-institution">
-          <span>Pan-African Strategic Intelligence Institution</span>
-          <span aria-hidden="true">•</span>
-          <span>Sovereign Resource &amp; Transition Decisions</span>
-        </div>
-        <div class="topbar-tools">
-          <div class="lang-switcher" aria-label="Language selector">
-            <span class="active" title="English selected">EN</span>
-            <span aria-hidden="true">|</span>
-            <button type="button" id="lang-switch-fr" title="Passer au français (version en déploiement)">FR</button>
-          </div>
-          <span class="last-reviewed-tag">Review: October 2026</span>
-        </div>
-      </div>
-    </div>
-
     <div class="header-main">
       <div class="container">
-        <a href="index.html" class="site-logo" aria-label="RAFA Home">
-          <img src="assets/rafa-logo.png" alt="RAFA — Resource Analytics for Future Africa" class="site-logo-img" />
+        <a href="../index.html" class="site-logo" aria-label="RAFA Home">
+          <img src="../assets/images/rafa-logo.png" alt="RAFA — Resource Analytics for Future Africa" class="site-logo-img" />
         </a>
 
         <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
@@ -50,7 +33,7 @@
 
         <nav class="main-nav" id="primary-nav" aria-label="Main navigation">
           <ul class="nav-list">
-            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="../index.html" class="nav-link">Home</a></li>
             <li><a href="about.html" class="nav-link">About</a></li>
             <li><a href="what-we-do.html" class="nav-link">What we do</a></li>
             <li><a href="c-mink.html" class="nav-link">C MINK &amp; programmes</a></li>
@@ -96,43 +79,41 @@
               For ministers, permanent secretaries, state enterprise heads, and regional economic commission directors preparing for consequential resource or transition decisions.
             </p>
 
-            <!-- Mandatory Confidentiality Notice Box -->
+            <!-- Confidentiality Notice -->
             <div class="form-notice-box" style="margin-bottom: var(--space-xl);">
-              <strong>Confidentiality Notice:</strong> Sensitive state matters, unreleased concession drafts, and proprietary financial filings should <em>not</em> be transmitted via this web form. Use this form to qualify your institutional inquiry; an encrypted, secure direct routing will be provided following preliminary vetting.
-              <div style="margin-top: 0.5rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-slate-600);">
-                Secure Protocol: <span class="rafa-placeholder">[SECURE PGP KEY / ENCRYPTED COMMUNICATOR ROUTE AVAILABLE UPON INITIAL QUALIFICATION]</span>
-              </div>
+              <strong>Your information matters:</strong> Please do not include classified information, sensitive state matters, unreleased concession drafts, or proprietary financial filings in this inquiry. Share only information you are comfortable including in a public website form.
             </div>
 
             <!-- The Briefing Request Form -->
-            <div class="form-card">
+            <div class="form-card briefing-form-card">
+              <ol class="briefing-stepper" aria-label="Briefing request steps">
+                <li><button type="button" class="briefing-stepper__step is-active" data-briefing-step="0" aria-current="step"><span>01</span><strong>Your institution</strong><small>Who you represent</small></button></li>
+                <li><button type="button" class="briefing-stepper__step" data-briefing-step="1"><span>02</span><strong>Briefing focus</strong><small>What you need</small></button></li>
+                <li><button type="button" class="briefing-stepper__step" data-briefing-step="2"><span>03</span><strong>Review &amp; send</strong><small>Confirm your request</small></button></li>
+              </ol>
               <form id="briefing-request-form" novalidate>
-                
-                <div class="form-row">
-                  <!-- Full Name -->
-                  <div class="form-group">
-                    <label for="field-full-name">Official Name <span class="required" aria-hidden="true">*</span></label>
-                    <input type="text" id="field-full-name" name="full_name" class="form-control" placeholder="e.g. Dr. Amina Diallo" required aria-required="true">
+                <p class="briefing-progress" id="briefing-progress" role="status" aria-live="polite">Step 1 of 3 · Your institution</p>
+                <fieldset class="briefing-step-panel is-active" data-briefing-panel="0">
+                  <legend>Tell us who you represent</legend>
+                  <p class="briefing-step-panel__intro">We use these details to understand the institutional context of your request.</p>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="field-full-name">Official Name <span class="required" aria-hidden="true">*</span></label>
+                      <input type="text" id="field-full-name" name="full_name" class="form-control" placeholder="e.g. Dr. Amina Diallo" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                      <label for="field-org">Institutional Organisation <span class="required" aria-hidden="true">*</span></label>
+                      <input type="text" id="field-org" name="organisation" class="form-control" placeholder="e.g. Ministry of Mines &amp; Energy / REC Secretariat" required aria-required="true">
+                    </div>
                   </div>
-
-                  <!-- Organisation -->
-                  <div class="form-group">
-                    <label for="field-org">Institutional Organisation <span class="required" aria-hidden="true">*</span></label>
-                    <input type="text" id="field-org" name="organisation" class="form-control" placeholder="e.g. Ministry of Mines &amp; Energy / REC Secretariat" required aria-required="true">
-                  </div>
-                </div>
-
-                <div class="form-row">
-                  <!-- Role / Title -->
-                  <div class="form-group">
-                    <label for="field-role">Official Role / Designation <span class="required" aria-hidden="true">*</span></label>
-                    <input type="text" id="field-role" name="role" class="form-control" placeholder="e.g. Director General / Chief Negotiator" required aria-required="true">
-                  </div>
-
-                  <!-- Country / Jurisdiction -->
-                  <div class="form-group">
-                    <label for="field-country">Country / Jurisdiction <span class="required" aria-hidden="true">*</span></label>
-                    <select id="field-country" name="country" class="form-control" required aria-required="true">
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="field-role">Official Role / Designation <span class="required" aria-hidden="true">*</span></label>
+                      <input type="text" id="field-role" name="role" class="form-control" placeholder="e.g. Director General / Chief Negotiator" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                      <label for="field-country">Country / Jurisdiction <span class="required" aria-hidden="true">*</span></label>
+                      <select id="field-country" name="country" class="form-control" required aria-required="true">
                       <option value="" disabled selected>Select country or regional jurisdiction...</option>
                       <optgroup label="Regional &amp; Continental Bodies">
                         <option value="African Union Commission">African Union Commission</option>
@@ -167,14 +148,17 @@
                         <option value="Non-African Sovereign Partner">Non-African Sovereign Partner</option>
                         <option value="Independent Research / University">Independent Research / University</option>
                       </optgroup>
-                    </select>
+                      </select>
+                    </div>
                   </div>
-                </div>
+                </fieldset>
 
-                <!-- Interest Area -->
-                <div class="form-group">
-                  <label for="field-interest">Primary Area of Interest <span class="required" aria-hidden="true">*</span></label>
-                  <select id="field-interest" name="interest_area" class="form-control" required aria-required="true">
+                <fieldset class="briefing-step-panel" data-briefing-panel="1" hidden>
+                  <legend>What would you like to explore?</legend>
+                  <p class="briefing-step-panel__intro">Choose the most relevant area and give us enough context to prepare.</p>
+                  <div class="form-group">
+                    <label for="field-interest">Primary Area of Interest <span class="required" aria-hidden="true">*</span></label>
+                    <select id="field-interest" name="interest_area" class="form-control" required aria-required="true">
                     <option value="" disabled selected>Select primary briefing focus...</option>
                     <option value="Critical Minerals / C MINK Intelligence">Critical Minerals &amp; C MINK Intelligence Platform</option>
                     <option value="Institutional Readiness Diagnostic">Institutional Readiness Diagnostic (Absorptive Capacity / Policy Audit)</option>
@@ -183,37 +167,43 @@
                     <option value="AfCFTA Regional Corridor & Value Addition">AfCFTA Regional Corridor Value Addition &amp; Rules of Origin</option>
                     <option value="Sovereign Carbon & Natural Capital Architecture">Sovereign Carbon &amp; Natural Capital Accounting</option>
                     <option value="High-Level Sovereign Convening">Chatham House-Rule Peer Convening</option>
-                  </select>
-                </div>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="field-email">Official Institutional Email <span class="required" aria-hidden="true">*</span></label>
+                    <input type="email" id="field-email" name="email" class="form-control" placeholder="name@ministry.gov or official domain" required aria-required="true">
+                    <span class="form-help">Please provide an official government or institutional domain email address.</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="field-message">Briefing Scope &amp; Strategic Context <span class="required" aria-hidden="true">*</span></label>
+                    <textarea id="field-message" name="message" class="form-control" placeholder="Summarize the core decision, upcoming milestone, or analytical support required. Do NOT include classified data." required aria-required="true"></textarea>
+                  </div>
+                </fieldset>
 
-                <!-- Institutional Email -->
-                <div class="form-group">
-                  <label for="field-email">Official Institutional Email <span class="required" aria-hidden="true">*</span></label>
-                  <input type="email" id="field-email" name="email" class="form-control" placeholder="name@ministry.gov or official domain" required aria-required="true">
-                  <span class="form-help">Please provide an official government or institutional domain email address.</span>
-                </div>
+                <fieldset class="briefing-step-panel" data-briefing-panel="2" hidden>
+                  <legend>Review before you send</legend>
+                  <p class="briefing-step-panel__intro">Check your details, then confirm the request is appropriate for a public website form.</p>
+                  <div class="briefing-review" aria-live="polite">
+                    <div><span>Institution</span><strong data-briefing-review="organisation">Not provided yet</strong></div>
+                    <div><span>Representative</span><strong data-briefing-review="full_name">Not provided yet</strong></div>
+                    <div><span>Briefing focus</span><strong data-briefing-review="interest_area">Not provided yet</strong></div>
+                    <div><span>Reply email</span><strong data-briefing-review="email">Not provided yet</strong></div>
+                  </div>
+                  <div class="form-group briefing-consent">
+                    <label class="form-checkbox-label">
+                      <input type="checkbox" name="consent" id="field-consent" required aria-required="true">
+                      <span>
+                        I confirm that I represent a qualified public, multilateral, or research institution. I understand that RAFA adheres to a strict <a href="#" data-open-modal="privacy-modal">privacy and data protection protocol</a>, and that classified sovereign materials must not be transmitted through this form. <span class="required" aria-hidden="true">*</span>
+                      </span>
+                    </label>
+                  </div>
+                </fieldset>
 
-                <!-- Message / Briefing Scope -->
-                <div class="form-group">
-                  <label for="field-message">Briefing Scope &amp; Strategic Context <span class="required" aria-hidden="true">*</span></label>
-                  <textarea id="field-message" name="message" class="form-control" placeholder="Summarize the core decision, upcoming milestone, or analytical support required. Do NOT include classified data." required aria-required="true"></textarea>
+                <div class="briefing-form-actions">
+                  <button type="button" class="btn btn--outline" id="briefing-back-button" hidden>Back</button>
+                  <button type="button" class="btn btn--primary" id="briefing-next-button">Continue</button>
+                  <button type="submit" class="btn btn--primary btn--lg" id="briefing-submit-button" hidden>Submit briefing request</button>
                 </div>
-
-                <!-- Privacy & Consent Checkbox -->
-                <div class="form-group">
-                  <label class="form-checkbox-label">
-                    <input type="checkbox" name="consent" id="field-consent" required aria-required="true">
-                    <span>
-                      I confirm that I represent a qualified public, multilateral, or research institution. I understand that RAFA adheres to a strict <a href="#" data-open-modal="privacy-modal">privacy and data protection protocol</a>, and that classified sovereign materials must not be transmitted through this form. <span class="required" aria-hidden="true">*</span>
-                    </span>
-                  </label>
-                </div>
-
-                <!-- Submit Button -->
-                <div style="margin-top: var(--space-lg);">
-                  <button type="submit" class="btn btn--primary btn--lg">Submit Briefing Request</button>
-                </div>
-
               </form>
             </div>
 
@@ -242,7 +232,7 @@
             <p>
               Partner with RAFA to co-convene sovereign ministerial roundtables, design cross-border regional value-chain corridors, or harmonize mineral trade rules under AfCFTA.
             </p>
-            <div class="app-metric">Contact: secretariat@rafa.africa (placeholder)</div>
+            <div class="app-metric">Contact: <a data-rafa-contact="diplomatic" data-rafa-fallback="Use the briefing inquiry form" href="#briefing-section">Use the briefing inquiry form</a></div>
           </div>
 
           <div class="app-card">
@@ -251,7 +241,7 @@
             <p>
               Collaborate on empirical geological databases, peer review methodology notes, and co-publish open-access decision models with African university faculties.
             </p>
-            <div class="app-metric">Contact: research@rafa.africa (placeholder)</div>
+            <div class="app-metric">Contact: <a data-rafa-contact="partnership" data-rafa-fallback="Use the partnership inquiry form" data-rafa-fallback-href="#partnership-section" href="#partnership-section">Use the partnership inquiry form</a></div>
           </div>
 
           <div class="app-card">
@@ -260,7 +250,7 @@
             <p>
               Discuss core institutional support, programmatic grants, or analytical tool capitalization protected by our strict governance firewalls.
             </p>
-            <div class="app-metric">Contact: partnerships@rafa.africa (placeholder)</div>
+            <div class="app-metric">Contact: <a data-rafa-contact="partnership" data-rafa-fallback="Use the partnership inquiry form" data-rafa-fallback-href="#partnership-section" href="#partnership-section">Use the partnership inquiry form</a></div>
           </div>
 
         </div>
@@ -317,40 +307,50 @@
           </p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-lg); margin-top: var(--space-xl);">
-          
-          <div style="background: #ffffff; padding: var(--space-lg); border: 1px solid var(--color-slate-200); border-radius: var(--border-radius-sm);">
-            <h4>Secretariat Headquarters</h4>
-            <p style="font-size: 0.9375rem; color: var(--color-slate-700); margin-top: 0.5rem;">
-              Host city and permanent secretariat seat:
-            </p>
-            <div style="margin-top: 0.5rem;">
-              <span class="rafa-placeholder">[SECRETARIAT HEADQUARTERS TO BE CONFIRMED]</span>
-            </div>
+        <div class="contact-channel-grid">
+          <a class="contact-email-link" data-rafa-contact-card data-rafa-contact="general" data-rafa-fallback="Official email to be confirmed" data-rafa-fallback-href="#general-inquiry-form" href="#general-inquiry-form">
+            <i data-lucide="mail" aria-hidden="true"></i><span><strong>Contact us</strong><small data-rafa-contact-value>General enquiries email to be confirmed</small></span>
+          </a>
+          <a class="contact-email-link" data-rafa-contact-card data-rafa-contact="diplomatic" data-rafa-fallback="Official email to be confirmed" data-rafa-fallback-href="#briefing-section" href="#briefing-section">
+            <i data-lucide="landmark" aria-hidden="true"></i><span><strong>Briefing &amp; diplomatic liaison</strong><small data-rafa-contact-value>Official email to be confirmed</small></span>
+          </a>
+          <a class="contact-email-link" data-rafa-contact-card data-rafa-contact="partnership" data-rafa-fallback="Official email to be confirmed" data-rafa-fallback-href="#partnership-section" href="#partnership-section">
+            <i data-lucide="handshake" aria-hidden="true"></i><span><strong>Partnership enquiries</strong><small data-rafa-contact-value>Official email to be confirmed</small></span>
+          </a>
+          <a class="contact-email-link" data-rafa-contact-card data-rafa-contact="media" data-rafa-fallback="Official email to be confirmed" data-rafa-fallback-href="#general-inquiry-form" href="#general-inquiry-form">
+            <i data-lucide="newspaper" aria-hidden="true"></i><span><strong>Media &amp; press</strong><small data-rafa-contact-value>Official email to be confirmed</small></span>
+          </a>
+          <div class="contact-email-link contact-address" data-rafa-contact-card="address">
+            <i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Secretariat mailing address</strong><small data-rafa-headquarters>Official address to be confirmed</small></span>
           </div>
-
-          <div style="background: #ffffff; padding: var(--space-lg); border: 1px solid var(--color-slate-200); border-radius: var(--border-radius-sm);">
-            <h4>Official Electronic Dispatch</h4>
-            <p style="font-size: 0.9375rem; color: var(--color-slate-700); margin-top: 0.5rem;">
-              General institutional liaison and verification:
-            </p>
-            <div style="margin-top: 0.5rem;">
-              <span class="rafa-placeholder">[CONTACT EMAIL]</span>
-            </div>
-          </div>
-
-          <div style="background: #ffffff; padding: var(--space-lg); border: 1px solid var(--color-slate-200); border-radius: var(--border-radius-sm);">
-            <h4>Diplomatic &amp; Sovereign Liaison</h4>
-            <p style="font-size: 0.9375rem; color: var(--color-slate-700); margin-top: 0.5rem;">
-              Ministerial scheduling and multilateral protocols:
-            </p>
-            <div style="margin-top: 0.5rem;">
-              <span class="rafa-placeholder">[DIPLOMATIC DESK EMAIL TO BE CONFIRMED]</span>
-            </div>
-          </div>
-
         </div>
 
+        <div class="form-card" style="max-width: 820px; margin-top: var(--space-2xl);" id="general-inquiry">
+          <h3 id="general-inquiry-heading">Have a question? Send RAFA a message.</h3>
+          <p>For general questions, media enquiries, or a conversation about working together.</p>
+          <form id="general-inquiry-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="general-name">Your name <span class="required" aria-hidden="true">*</span></label>
+                <input type="text" id="general-name" name="name" class="form-control" autocomplete="name" required>
+              </div>
+              <div class="form-group">
+                <label for="general-email">Your email <span class="required" aria-hidden="true">*</span></label>
+                <input type="email" id="general-email" name="email" class="form-control" autocomplete="email" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="general-subject">What is your question about? <span class="required" aria-hidden="true">*</span></label>
+              <input type="text" id="general-subject" name="subject" class="form-control" maxlength="120" required>
+            </div>
+            <div class="form-group">
+              <label for="general-message">Your message <span class="required" aria-hidden="true">*</span></label>
+              <textarea id="general-message" name="message" class="form-control" rows="5" maxlength="3000" required placeholder="Please do not include classified or sensitive information."></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary">Send your message</button>
+            <p class="form-help" style="margin-top: var(--space-sm);">Please do not send confidential or classified material through this form.</p>
+          </form>
+        </div>
       </div>
     </section>
 
@@ -361,21 +361,18 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <a href="index.html" class="footer-logo-link" aria-label="RAFA Home">
-            <img src="assets/rafa-logo-light.png" alt="RAFA — Resource Analytics for Future Africa" class="footer-logo" />
+          <a href="../index.html" class="footer-logo-link" aria-label="RAFA Home">
+            <img src="../assets/images/rafa-logo-light.png" alt="RAFA — Resource Analytics for Future Africa" class="footer-logo" />
           </a>
           <p style="font-size: 0.875rem; color: var(--color-slate-300); line-height: 1.6;">
             Resource Analytics for Future Africa is an Africa-centred strategic-intelligence institution dedicated to consequential resource and transition decisions.
           </p>
-          <div style="margin-top: var(--space-md); font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-slate-400);">
-            Legal Status: <span class="rafa-placeholder">[LEGAL STATUS TO BE CONFIRMED]</span>
-          </div>
         </div>
 
         <div class="footer-col">
           <h4>Institution</h4>
           <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="../index.html">Home</a></li>
             <li><a href="about.html">About &amp; Principles</a></li>
             <li><a href="what-we-do.html">What We Do</a></li>
             <li><a href="c-mink.html">C MINK &amp; Programmes</a></li>
@@ -398,14 +395,16 @@
 
         <div class="footer-col">
           <h4>Engagement</h4>
-          <p style="font-size: 0.875rem; color: var(--color-slate-300); margin-bottom: 0.5rem;">
-            Headquarters Secretariat: <br>
-            <span class="rafa-placeholder">[SECRETARIAT HEADQUARTERS TO BE CONFIRMED]</span>
-          </p>
-          <p style="font-size: 0.875rem; color: var(--color-slate-300); margin-bottom: 0.75rem;">
-            Official Email: <br>
-            <span class="rafa-placeholder">[CONTACT EMAIL]</span>
-          </p>
+          <div class="footer-engagement-list">
+            <p class="footer-engagement-item">
+              <i data-lucide="user-round" aria-hidden="true"></i>
+              <span><strong>Headquarters Secretariat</strong><small data-rafa-headquarters>Contact the Secretariat through our inquiry form.</small></span>
+            </p>
+            <a class="footer-engagement-item" data-rafa-contact="general" data-rafa-fallback="Contact RAFA through our inquiry form" href="#briefing-section">
+              <i data-lucide="mail" aria-hidden="true"></i>
+              <span><strong>Email Us</strong><small data-rafa-contact-value>Contact RAFA through our inquiry form</small></span>
+            </a>
+          </div>
           <p style="font-size: 0.875rem;">
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.35rem; color: var(--color-ochre-300);">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
@@ -433,7 +432,7 @@
   <!-- Briefing Confirmation Modal -->
   <dialog class="modal" id="briefing-confirmation-modal" aria-labelledby="confirmation-modal-title">
     <div class="modal-header">
-      <h3 id="confirmation-modal-title">Institutional Briefing Intake Record</h3>
+      <h3 id="confirmation-modal-title">Thank you — request received</h3>
       <button class="modal-close-btn" data-close-modal aria-label="Close dialog">&times;</button>
     </div>
     <div class="modal-body" id="briefing-confirmation-summary">
@@ -474,6 +473,11 @@
     </div>
   </dialog>
 
-  <script src="js/main.js"></script>
+  <div class="gtranslate_wrapper"></div>
+  <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"languages":["en","it","es","tr","ar","nl","zh-CN","fr","pt","id"],"wrapper_selector":".gtranslate_wrapper"}</script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script src="../js/site-data.js"></script>
+  <script src="../js/main.js"></script>
 </body>
 </html>
