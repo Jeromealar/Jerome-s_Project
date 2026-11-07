@@ -72,9 +72,9 @@
       <div class="container">
         
         <div class="c-mink-spotlight" style="border-left: 5px solid #d98200;">
-          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: var(--space-sm);">
-            <span class="status-badge">Phase: Prototype Validation &amp; Scoping</span>
-            <span style="font-family: var(--font-mono); font-size: 0.8125rem; color: var(--color-slate-500);">Version 0.4.1 (Closed Technical Preview)</span>
+          <div class="cmink-status-meta" aria-label="C MINK status and version">
+            <span class="status-badge"><span class="cmink-status-label">Phase</span><span>Prototype validation &amp; scoping</span></span>
+            <span class="cmink-version"><strong>Version 0.4.1</strong><span>Closed technical preview</span></span>
           </div>
           
           <h2 id="status-statement-title" style="margin-bottom: var(--space-sm);">
@@ -103,12 +103,18 @@
     <!-- C MINK Architecture & Focus Areas -->
     <section class="section section--sand section--bordered" aria-labelledby="architecture-title">
       <div class="container">
-        <div style="max-width: 820px;">
-          <span class="eyebrow">Platform Architecture</span>
-          <h2 id="architecture-title">How C MINK organizes sovereign mineral intelligence.</h2>
-          <p class="lead">
-            C MINK integrates four analytical layers to convert disconnected geological records and commercial filings into sovereign strategic advantage.
-          </p>
+        <div class="cmink-architecture-intro">
+          <div>
+            <span class="eyebrow">Platform Architecture</span>
+            <h2 id="architecture-title">How C MINK organizes sovereign mineral intelligence.</h2>
+            <p class="lead">
+              C MINK integrates four analytical layers to convert disconnected geological records and commercial filings into sovereign strategic advantage.
+            </p>
+          </div>
+          <figure class="cmink-field-image">
+            <img src="../assets/images/omid-roshan-lHI9NA4U7hg-unsplash.jpg" alt="A mine worker standing in front of a large haul truck" loading="lazy" decoding="async">
+            <figcaption>Illustrative view of a mine site and the people behind mineral supply chains.</figcaption>
+          </figure>
         </div>
 
         <!-- Conceptual Architecture Diagram -->
@@ -120,8 +126,18 @@
             <rect x="30" y="40" width="180" height="240" rx="4" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1"/>
             <rect x="30" y="40" width="180" height="6" fill="#0E1726"/>
             <text x="45" y="75" font-family="'SF Mono', monospace" font-size="10" font-weight="700" fill="#C86D3B">LAYER 01</text>
-            <text x="45" y="100" font-family="'Newsreader', serif" font-size="16" font-weight="600" fill="#0E1726">Asset &amp; Reserve Base</text>
-            <text x="45" y="125" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#475569">Harmonized geological surveys, verified ore grades, deposit depletion curves across lithium, cobalt, graphite, manganese.</text>
+            <text x="45" y="98" font-family="'Newsreader', serif" font-size="14" font-weight="600" fill="#0E1726">
+              <tspan x="45">Asset &amp; Reserve</tspan>
+              <tspan x="45" y="115">Base</tspan>
+            </text>
+            <text x="45" y="136" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#475569">
+              <tspan x="45">Harmonized geological</tspan>
+              <tspan x="45" dy="15">surveys, verified ore</tspan>
+              <tspan x="45" dy="15">grades and deposit</tspan>
+              <tspan x="45" dy="15">depletion curves across</tspan>
+              <tspan x="45" dy="15">lithium, cobalt, graphite</tspan>
+              <tspan x="45" dy="15">and manganese.</tspan>
+            </text>
             <rect x="45" y="225" width="150" height="26" rx="2" fill="#EFF3F7"/>
             <text x="53" y="242" font-family="'SF Mono', monospace" font-size="9" fill="#1E293B">Pilot: 14 Mineral Classes</text>
 
@@ -133,8 +149,18 @@
             <rect x="235" y="40" width="180" height="240" rx="4" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1"/>
             <rect x="235" y="40" width="180" height="6" fill="#C86D3B"/>
             <text x="250" y="75" font-family="'SF Mono', monospace" font-size="10" font-weight="700" fill="#C86D3B">LAYER 02</text>
-            <text x="250" y="100" font-family="'Newsreader', serif" font-size="16" font-weight="600" fill="#0E1726">Corporate Ownership</text>
-            <text x="250" y="125" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#475569">Beneficial ownership tracing, joint-venture structures, off-take encumbrances, and geopolitical parentage mapping.</text>
+            <text x="250" y="98" font-family="'Newsreader', serif" font-size="14" font-weight="600" fill="#0E1726">
+              <tspan x="250">Corporate</tspan>
+              <tspan x="250" y="115">Ownership</tspan>
+            </text>
+            <text x="250" y="136" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#475569">
+              <tspan x="250">Beneficial ownership</tspan>
+              <tspan x="250" dy="15">tracing, joint-venture</tspan>
+              <tspan x="250" dy="15">structures, off-take</tspan>
+              <tspan x="250" dy="15">encumbrances and</tspan>
+              <tspan x="250" dy="15">geopolitical parentage</tspan>
+              <tspan x="250" dy="15">mapping.</tspan>
+            </text>
             <rect x="250" y="225" width="150" height="26" rx="2" fill="#EFF3F7"/>
             <text x="258" y="242" font-family="'SF Mono', monospace" font-size="9" fill="#1E293B">Uncovering Off-Take Ties</text>
 
@@ -146,8 +172,18 @@
             <rect x="440" y="40" width="180" height="240" rx="4" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1"/>
             <rect x="440" y="40" width="180" height="6" fill="#1D2C42"/>
             <text x="455" y="75" font-family="'SF Mono', monospace" font-size="10" font-weight="700" fill="#C86D3B">LAYER 03</text>
-            <text x="455" y="100" font-family="'Newsreader', serif" font-size="16" font-weight="600" fill="#0E1726">Fiscal Benchmarks</text>
-            <text x="455" y="125" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#475569">Comparative royalty rates, windfall tax triggers, transfer pricing thresholds, and state free-carried equity models.</text>
+            <text x="455" y="98" font-family="'Newsreader', serif" font-size="14" font-weight="600" fill="#0E1726">
+              <tspan x="455">Fiscal</tspan>
+              <tspan x="455" y="115">Benchmarks</tspan>
+            </text>
+            <text x="455" y="136" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#475569">
+              <tspan x="455">Comparative royalty</tspan>
+              <tspan x="455" dy="15">rates, windfall tax</tspan>
+              <tspan x="455" dy="15">triggers, transfer pricing</tspan>
+              <tspan x="455" dy="15">thresholds and state</tspan>
+              <tspan x="455" dy="15">free-carried equity</tspan>
+              <tspan x="455" dy="15">models.</tspan>
+            </text>
             <rect x="455" y="225" width="150" height="26" rx="2" fill="#EFF3F7"/>
             <text x="463" y="242" font-family="'SF Mono', monospace" font-size="9" fill="#1E293B">Closing Information Gaps</text>
 
@@ -159,8 +195,17 @@
             <rect x="645" y="40" width="185" height="240" rx="4" fill="#0E1726" stroke="#1D2C42" stroke-width="1"/>
             <rect x="645" y="40" width="185" height="6" fill="#C86D3B"/>
             <text x="660" y="75" font-family="'SF Mono', monospace" font-size="10" font-weight="700" fill="#E8A983">LAYER 04</text>
-            <text x="660" y="100" font-family="'Newsreader', serif" font-size="16" font-weight="600" fill="#FFFFFF">Value Addition Feasibility</text>
-            <text x="660" y="125" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#CBD5E1">Energy tariff modeling, chemical reagent logistics, and cross-border smelting viability under AfCFTA corridors.</text>
+            <text x="660" y="98" font-family="'Newsreader', serif" font-size="14" font-weight="600" fill="#FFFFFF">
+              <tspan x="660">Value Addition</tspan>
+              <tspan x="660" y="115">Feasibility</tspan>
+            </text>
+            <text x="660" y="136" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#CBD5E1">
+              <tspan x="660">Energy tariff modeling,</tspan>
+              <tspan x="660" dy="15">chemical reagent</tspan>
+              <tspan x="660" dy="15">logistics, cross-border</tspan>
+              <tspan x="660" dy="15">smelting viability under</tspan>
+              <tspan x="660" dy="15">AfCFTA corridors.</tspan>
+            </text>
             <rect x="660" y="225" width="155" height="26" rx="2" fill="#1D2C42"/>
             <text x="668" y="242" font-family="'SF Mono', monospace" font-size="9" fill="#E8A983">Max Sovereign Retention</text>
           </svg>
