@@ -1,0 +1,112 @@
+RAFA WEBSITE PROGRESS REPORT
+Prepared: 7 November 2026
+
+PURPOSE
+This report summarizes the current public website, the admin preview, progress to date, outstanding limitations, and recommended next steps.
+
+1. WEBSITE LINKS
+
+The links below use rafahq.org as the intended domain. They will work only if the domain is connected to a deployment containing the current repository files. The live DNS and hosting configuration have not been independently verified for this report.
+
+Domain homepage:
+https://rafahq.org/
+
+Full public website (index1.html):
+https://rafahq.org/index1.html
+
+Admin preview:
+https://rafahq.org/pages/admin.html
+
+Source repository:
+https://github.com/EngKumiLarbi/RAFA
+
+Supporting public pages:
+About RAFA: https://rafahq.org/pages/about.html
+What we do: https://rafahq.org/pages/what-we-do.html
+C MINK: https://rafahq.org/pages/c-mink.html
+Insights Library: https://rafahq.org/pages/insights.html
+People: https://rafahq.org/pages/people.html
+Engage: https://rafahq.org/pages/engage.html
+
+IMPORTANT HOMEPAGE ROUTING NOTE
+In the current repository, index.html is a “Coming soon” page, while index1.html contains the full RAFA website. Therefore, the full site is expected at /index1.html. If the hosting provider serves index.html automatically at the domain root, visitors at https://rafahq.org/ may see the coming-soon page instead.
+
+The homepage/logo links in the full site also point to index.html, so visitors who follow them may be returned to the coming-soon page. The root route should be configured to serve the full site before the domain is promoted as the live RAFA website.
+
+2. WHAT THE HOMEPAGE TELLS VISITORS
+
+The full homepage introduces RAFA as an independent, Africa-centred strategic intelligence institution. It explains that RAFA helps African institutions understand changes in markets, policy, technology, and geopolitics and use that insight to make resource and transition decisions.
+
+The homepage presents:
+- RAFA’s Anticipate, Prepare, Position approach.
+- Strategic intelligence, foresight, institutional support, knowledge and narrative work, and convening.
+- The audiences RAFA seeks to work with, including public institutions, research and data institutions, experts, practitioners, and enabling partners.
+- Links to RAFA’s About, What we do, C MINK, Insights, People, and Engage pages.
+- Calls to action to discuss a strategic question or request a briefing.
+- An events interface and a language-translation widget.
+
+The site uses a responsive layout and provides links into the public information and engagement pages. The language widget can provide automated translations; it is not a substitute for reviewed, approved translations of RAFA’s institutional content.
+
+3. ADMIN PREVIEW CAPABILITIES
+
+The admin preview at /pages/admin.html has the following sections:
+
+1. Overview: Displays counts and summaries for events, inquiries, contacts, and publications.
+2. Events: Add, edit, and delete event details, including dates, venue, location, and session information.
+3. Insights Library: Add PDF publications with metadata and remove them from the local preview library.
+4. Contacts and emails: Enter general, partnership, diplomatic/institutional, and media email addresses, plus a headquarters or mailing address.
+5. Inquiry inbox: Review inquiries captured by the public forms, mark them as read, and delete them.
+
+The admin page itself clearly identifies the experience as a preview. Its changes and messages are saved only in the current browser; it does not have a production user account system or shared content service.
+
+4. PROGRESS TO DATE
+
+The project has progressed from a static landing page to a broader multi-page public website and an interactive admin demonstration. The implemented work includes:
+
+- A designed homepage and supporting pages for institutional information, services, programmes, people, insights, and engagement.
+- Responsive navigation and page layouts.
+- A multi-event calendar experience and event-management interface.
+- A guided briefing/inquiry experience and an admin inbox preview.
+- An Insights Library interface with PDF upload and metadata entry.
+- Contact-management fields and public contact display paths.
+- A translation widget on public pages.
+- Organized folders for pages, stylesheets, scripts, and image assets.
+- A repeatable internal link and anchor checker.
+
+These features demonstrate the intended user experience and content model. Because the site is currently static, several management features are demonstrations rather than shared, production publishing workflows.
+
+5. CURRENT LIMITATIONS AND UNFINISHED WORK
+
+Data and form handling:
+- Events, contacts, and inquiries are stored in the visitor’s or administrator’s browser storage. They are not shared across visitors, devices, or browsers.
+- Public form submissions do not reach a central RAFA inbox or database and do not send email notifications. An administrator using a different browser will not see a visitor’s locally stored inquiry.
+- Uploaded PDFs are held in browser IndexedDB and are not uploaded to a shared server or made available to other visitors.
+- Changes made in the admin preview do not update the deployed website for everyone. Production updates currently require a shared backend or a managed publishing workflow.
+
+Administration and security:
+- The admin preview has no authentication or authorization. The noindex directive asks search engines not to index the page; it does not prevent people from opening it.
+- It should not be used to store confidential inquiries, sensitive documents, or operational information.
+- A real production admin needs authenticated accounts, role-based permissions, secure server-side storage, and a controlled publishing process.
+
+Content and deployment:
+- Official contact addresses and headquarters details still need confirmation before they can be reliably published.
+- Event information should be reviewed and expired events removed or updated after the event dates pass.
+- The current translation widget provides automated translation; approved, human-reviewed French content remains a separate content task.
+- The domain’s live routing, hosting, and deployment behavior have not been verified for this report.
+
+6. RECOMMENDATIONS
+
+Immediate priorities:
+ 
+1. Verify public facts. Confirm RAFA’s official email addresses, mailing address, event information, organizational descriptions, and any claims before publication.
+
+Next-stage improvements:
+
+2. Build shared content management. Add a backend or managed CMS for events, contacts, articles, and inquiries so authorized staff can make changes visible to all visitors.
+3. Add privacy and retention practices. Publish a privacy notice explaining what information is collected, where it is stored, who can access it, and how long it is retained. Avoid requesting sensitive information through a static preview.
+4. Prepare approved translations. Have French and any other priority-language content professionally translated and reviewed; label machine translation appropriately in the meantime.
+5. Establish maintenance checks. Assign owners for event updates, publication review, contact verification, accessibility checks, backups, and periodic link testing.
+
+7. OVERALL ASSESSMENT
+
+The project has a solid public-facing design and a useful interactive demonstration of the content-management experience. The principal gap is not the appearance of the pages; it is the transition from a static, browser-local prototype to a reliably managed public service. Aligning the homepage route, confirming public information, and establishing a secure shared system for inquiries and updates are the key steps before relying on the admin experience for real operations.
