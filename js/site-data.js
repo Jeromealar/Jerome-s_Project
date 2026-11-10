@@ -264,7 +264,7 @@
   function upcomingEvents(events) {
     const today = new Date().toISOString().slice(0, 10);
     return events
-      .filter(event => event.startDate >= today)
+      .filter(event => event.endDate >= today)
       .sort((left, right) => left.startDate.localeCompare(right.startDate));
   }
 

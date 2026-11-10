@@ -1278,7 +1278,7 @@ summary:focus-visible {
 .rafa-event-launcher {
   position: fixed;
   z-index: 980;
-  right: max(1.25rem, env(safe-area-inset-right));
+  left: max(1.25rem, env(safe-area-inset-left));
   bottom: max(1.25rem, env(safe-area-inset-bottom));
   display: inline-flex;
   align-items: center;
@@ -1408,7 +1408,7 @@ summary:focus-visible {
 
 @media (max-width: 575.98px) {
   .rafa-event-launcher {
-    right: 1rem;
+    left: 1rem;
     bottom: 1rem;
   }
 
